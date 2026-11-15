@@ -1172,7 +1172,7 @@
               <li><a href="#bewerbung">Karriere</a></li>
               <li><a href="#kontakt">Kontakt</a></li>
               <li><a href="#mitarbeiter">Mitarbeiter-Bereich</a></li>
-              <li><a href="#" id="adminLink">Admin-Bereich (Demo)</a></li>
+              <li><a href="#" id="adminLink">Admin-Bereich</a></li>
             </ul>
           </div>
           <div>
@@ -1227,9 +1227,13 @@
         <div class="sub">Demo-Ansicht: In dieser Vorschau werden Einträge nur temporär im Browser angezeigt. Ein echter Admin-Bereich erfordert beim Live-Betrieb einen Server mit Datenbank und geschützter Anmeldung.</div>
         <div id="adminLogin">
           <div class="admin-feld">
-            <label for="adminPw">Passwort</label>
-            <input type="password" id="adminPw" placeholder="Demo-Passwort: demo1234" />
-            <div class="fehler" id="e-admin">Das Passwort ist falsch.</div>
+            <label for="adminBenutzer">Benutzername</label>
+            <input type="text" id="adminBenutzer" placeholder="10-stelliger Benutzername" autocomplete="off" />
+          </div>
+          <div class="admin-feld">
+            <label for="adminPw">Einmalschlüssel</label>
+            <input type="password" id="adminPw" placeholder="Einmalschlüssel (mindestens 20 Zeichen)" autocomplete="off" />
+            <div class="fehler" id="e-admin">Benutzername oder Einmalschlüssel ist falsch.</div>
           </div>
           <button class="btn btn-navy" onclick="adminEinloggen()">Anmelden</button>
         </div>
@@ -1682,13 +1686,25 @@
         document.getElementById("adminInhalt").style.display = "none";
         document.getElementById("e-admin").style.display = "none";
       }
+      const ADMIN_KONTO = { benutzer: "WNHQS76F6E", schluessel: "xxgpa63YHHbMe3nwAcwyQYq9kXUMpyt5" };
       function adminEinloggen() {
-        const pw = document.getElementById("adminPw").value;
-        if (pw === "demo1234") {
+        const ben = document.getElementById("adminBenutzer").value.trim();
+        const key = document.getElementById("adminPw").value;
+        const fehler = document.getElementById("e-admin");
+        fehler.style.display = "none";
+        if (localStorage.getItem("adminSchluesselVerbraucht") === "1") {
+          fehler.textContent = "Der Einmalschlüssel wurde bereits verwendet und ist ungültig. Bitte neuen Schlüssel anlegen.";
+          fehler.style.display = "block";
+          return;
+        }
+        if (ben === ADMIN_KONTO.benutzer && key === ADMIN_KONTO.schluessel) {
+          localStorage.setItem("adminSchluesselVerbraucht", "1");
           document.getElementById("adminLogin").style.display = "none";
           document.getElementById("adminInhalt").style.display = "block";
+          adminMelden("Anmeldung erfolgreich. Der Einmalschlüssel ist ab jetzt verbraucht und ungültig.");
         } else {
-          document.getElementById("e-admin").style.display = "block";
+          fehler.textContent = "Benutzername oder Einmalschlüssel ist falsch.";
+          fehler.style.display = "block";
         }
       }
       function adminMelden(text) {
