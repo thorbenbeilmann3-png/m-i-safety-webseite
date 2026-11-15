@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="de">
   <head>
@@ -361,8 +360,6 @@
       .ma-kopf strong { color: var(--navy); font-size: 1.02rem; }
       .demo-badge { background: var(--gold-soft); border: 1px solid var(--gold); color: #6b5510; font-size: 0.72rem; font-weight: 800; padding: 4px 10px; border-radius: 999px; letter-spacing: 0.06em; margin-left: 10px; white-space: nowrap; }
       .ma-tabs { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 22px; border-bottom: 2px solid var(--linie); }
-      .ma-tab-btn { border: none; background: none; cursor: pointer; font-family: inherit; font-weight: 700; color: var(--grau); font-size: 0.92rem; padding: 10px 16px; border-bottom: 3px solid transparent; margin-bottom: -2px; }
-      .ma-tab-btn.aktiv { color: var(--navy); border-bottom-color: var(--gold); }
       .ma-panel { display: none; }
       .ma-panel.aktiv { display: block; }
       .dp-wrap { overflow-x: auto; }
@@ -439,6 +436,68 @@
       @media (max-width: 620px) {
         .form-reihe, .kz-liste { grid-template-columns: 1fr; }
         .topbar { gap: 14px; }
+      }
+
+      /* ---------- Mitarbeiter-Portal (Vollbild) ---------- */
+      .ma-seite { position: fixed; inset: 0; background: #eef2f7; z-index: 60; display: none; flex-direction: column; overflow-y: auto; }
+      .ma-seite.aktiv { display: flex; }
+      .ma-kopfbereich { background: var(--navy); color: #fff; padding: 14px 26px; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; position: sticky; top: 0; z-index: 5; }
+      .ma-marke span { display: block; font-size: 0.74rem; letter-spacing: 0.09em; text-transform: uppercase; color: #9db0ca; }
+      .ma-marke strong { display: block; color: var(--gold-2); font-size: 1.05rem; }
+      .ma-benutzer { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+      .ma-benutzer span { font-size: 0.9rem; color: #dbe4f0; }
+      .ma-haupt { display: grid; grid-template-columns: 230px 1fr; flex: 1; min-height: 0; }
+      .ma-menue { background: #fff; border-right: 1px solid var(--linie); padding: 18px 12px; display: flex; flex-direction: column; gap: 4px; }
+      .ma-menue-btn { text-align: left; border: none; background: none; font-family: inherit; font-size: 0.95rem; font-weight: 700; color: var(--grau); padding: 11px 14px; border-radius: 10px; cursor: pointer; }
+      .ma-menue-btn:hover { background: var(--mist); }
+      .ma-menue-btn.aktiv { background: var(--navy); color: #fff; }
+      .ma-inhalt-bereich { padding: 30px 34px 60px; max-width: 1000px; }
+      .ma-inhalt { display: none; }
+      .ma-inhalt.aktiv { display: block; animation: maFade 0.25s ease; }
+      @keyframes maFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+      .ma-inhalt h2 { color: var(--navy); font-size: 1.5rem; margin-bottom: 10px; }
+      .ma-inhalt h3 { color: var(--navy); font-size: 1.05rem; margin: 20px 0 8px; }
+      .ma-start-kacheln { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; margin-top: 20px; }
+      .ma-kachel { border: 1px solid var(--linie); border-radius: 14px; background: #fff; padding: 20px; }
+      .ma-kachel h3 { color: var(--navy); font-size: 1rem; margin: 0 0 8px; }
+      .ma-kachel p { color: var(--grau); font-size: 0.88rem; line-height: 1.55; margin-bottom: 12px; }
+      .ma-daten-tabelle { width: 100%; border-collapse: collapse; margin: 14px 0 8px; font-size: 0.92rem; background: #fff; }
+      .ma-daten-tabelle td { border-bottom: 1px solid var(--linie); padding: 11px 14px; }
+      .ma-daten-tabelle td:first-child { color: var(--grau); width: 220px; }
+      .ma-toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0; }
+      .ma-news { border: 1px solid var(--linie); border-radius: 12px; background: #fff; padding: 18px 20px; margin-bottom: 12px; }
+      .ma-news strong { color: var(--navy); display: block; }
+      .ma-news span { color: var(--grau); font-size: 0.78rem; }
+      .ma-news p { color: #38455a; font-size: 0.9rem; line-height: 1.6; margin-top: 6px; }
+      .lohn-zeile { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; border: 1px solid var(--linie); border-radius: 12px; background: #fff; padding: 16px 18px; margin-bottom: 12px; }
+      .lohn-zeile strong { color: var(--navy); }
+      .lohn-zeile span { color: var(--grau); font-size: 0.84rem; }
+      .lohn-schutz { border: 1px dashed var(--gold); background: var(--gold-soft); color: #6b5510; border-radius: 10px; padding: 12px 16px; font-size: 0.85rem; line-height: 1.55; margin: 14px 0; }
+      .konto-zeile { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid var(--linie); padding: 9px 0; font-size: 0.88rem; }
+      .lohn-dropzone { border: 2px dashed var(--linie); border-radius: 12px; background: var(--mist); padding: 22px; text-align: center; color: var(--grau); font-size: 0.9rem; cursor: pointer; margin-top: 8px; }
+      .lohn-dropzone.drag { border-color: var(--gold); background: var(--gold-soft); }
+      .ma-dialog { position: fixed; inset: 0; background: rgba(10, 20, 35, 0.72); display: none; align-items: center; justify-content: center; z-index: 70; padding: 20px; }
+      .ma-dialog.aktiv { display: flex; }
+      .ma-dialog-box { background: #fff; border-radius: 16px; padding: 30px 32px; max-width: 440px; width: 100%; }
+      .ma-dialog-box h3 { color: var(--navy); margin-bottom: 10px; }
+      .ma-dialog-box p { color: var(--grau); font-size: 0.9rem; line-height: 1.6; }
+      .ma-dialog-box label { display: block; margin-top: 14px; }
+      .ma-dialog-box input { width: 100%; }
+      .ma-dialog-box button { width: 100%; margin-top: 18px; }
+      #druckBereich { display: none; }
+      @media print {
+        body * { visibility: hidden; }
+        #druckBereich { display: block; position: absolute; left: 0; top: 0; width: 100%; }
+        #druckBereich * { visibility: visible; }
+        #druckBereich h2 { color: #14345c; font-size: 1.2rem; }
+        #druckBereich table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+        #druckBereich th, #druckBereich td { border: 1px solid #999; padding: 6px 10px; font-size: 12px; text-align: left; }
+      }
+      @media (max-width: 800px) {
+        .ma-haupt { grid-template-columns: 1fr; }
+        .ma-menue { flex-direction: row; overflow-x: auto; border-right: none; border-bottom: 1px solid var(--linie); }
+        .ma-menue-btn { white-space: nowrap; }
+        .ma-inhalt-bereich { padding: 20px 16px 50px; }
       }
     </style>
   </head>
@@ -936,112 +995,38 @@
       <section class="abschnitt reveal" id="mitarbeiter">
         <div class="abschnitt-kopf">
           <div class="ueberlinie">Mitarbeiter-Bereich</div>
-          <h2>Dienstpläne, Schulungen und Team-Informationen</h2>
-          <p>Angemeldete Mitarbeitende sehen hier ihren aktuellen Dienstplan, anstehende Schulungen, Mitteilungen der Einsatzleitung und wichtige Dokumente.</p>
+          <h2>Dienstplan, Mitteilungen und Lohnabrechnung</h2>
+          <p>Angemeldete Mitarbeitende erreichen über diese Anmeldung ihr persönliches Portal: Dienstplan, Mitteilungen der Einsatzleitung, Dienst- und Urlaubswünsche sowie die elektronische Lohnabrechnung.</p>
         </div>
         <div class="ma-box">
           <div class="ma-login" id="maLoginKarte">
             <h3>Anmeldung für Mitarbeitende</h3>
-            <p>Demo-Zugang für diese Vorschau: Personalnummer <strong>1001</strong>, Passwort <strong>demo1234</strong>. Im Live-Betrieb erfolgt die Anmeldung mit persönlichen Zugangsdaten über einen geschützten Server.</p>
+            <p>Bitte melden Sie sich mit Ihrer Personalnummer und Ihrem Passwort an. Zugangsdaten erhalten Sie von der Verwaltung; das erste Passwort ist einmalig gültig und wird nach der Erstanmeldung durch ein eigenes ersetzt.</p>
             <form id="maForm" novalidate>
               <div style="margin-bottom:14px;">
                 <label for="ma-nummer">Personalnummer *</label>
-                <input id="ma-nummer" type="text" placeholder="z. B. 1001" />
+                <input id="ma-nummer" type="text" placeholder="z. B. 1001" autocomplete="username" />
               </div>
               <div>
                 <label for="ma-passwort">Passwort *</label>
-                <input id="ma-passwort" type="password" placeholder="Ihr Passwort" />
-                <div class="fehler" id="e-ma">Personalnummer oder Passwort ist falsch.</div>
+                <input id="ma-passwort" type="password" placeholder="Ihr Passwort" autocomplete="current-password" />
               </div>
-              <button type="submit" class="btn btn-gold">Anmelden</button>
+              <div class="fehler" id="e-ma">Personalnummer oder Passwort ist falsch.</div>
+              <div class="fehler" id="e-ma-hinweis" style="display:none;"></div>
+              <button type="submit" class="btn btn-gold" style="width:100%;margin-top:16px;">Anmelden und Portal öffnen</button>
+              <p style="margin-top:14px;font-size:0.84rem;"><a href="#" id="maVergessen">Passwort vergessen?</a></p>
             </form>
           </div>
           <div class="ma-info">
-            <h3>Nach der Anmeldung verfügbar</h3>
+            <h3>Ihr Portal im Überblick</h3>
             <ul>
-              <li>Mein Dienstplan: Einsatzzeiten, Objekte und Hinweise pro Woche</li>
-              <li>Schulungen: verbindliche Termine, Nachweise und Anmeldungen</li>
-              <li>Mitteilungen: aktuelle Informationen der Einsatzleitung</li>
-              <li>Dokumente: Dienstanweisungen, Checklisten und Formulare</li>
-              <li>Dienst- und Urlaubswünsche direkt an die Einsatzleitung</li>
+              <li><strong>Dienstplan:</strong> aktuelle Einsätze mit Zeiten und Objekten, zum Herunterladen als Excel-Tabelle (CSV) oder zum Ausdrucken als PDF.</li>
+              <li><strong>Lohnabrechnung:</strong> elektronische Bereitstellung anstelle des Postwegs, geschützt durch Ihre persönliche zehnstellige Bewachernummer.</li>
+              <li><strong>Mitteilungen:</strong> aktuelle Informationen der Einsatzleitung.</li>
+              <li><strong>Wünsche:</strong> Dienst- und Urlaubswünsche direkt an die Einsatzleitung übermitteln.</li>
+              <li><strong>Meine Daten:</strong> persönliche Angaben sowie die eigene Bewachernummer für die Lohnabrechnung.</li>
             </ul>
-          </div>
-        </div>
-        <div class="ma-portal" id="maPortal">
-          <div class="ma-kopf">
-            <div>
-              <strong id="maGruss">Angemeldet</strong>
-              <span class="demo-badge">Demo-Ansicht – Beispieldaten</span>
-            </div>
-            <button class="btn btn-ghost" onclick="maAbmelden()">Abmelden</button>
-          </div>
-          <div class="ma-tabs">
-            <button class="ma-tab-btn aktiv" data-tab="dienstplan" type="button">Mein Dienstplan</button>
-            <button class="ma-tab-btn" data-tab="schulungen" type="button">Schulungen</button>
-            <button class="ma-tab-btn" data-tab="mitteilungen" type="button">Mitteilungen</button>
-            <button class="ma-tab-btn" data-tab="dokumente" type="button">Dokumente &amp; Wünsche</button>
-          </div>
-          <div class="ma-panel aktiv" id="tab-dienstplan">
-            <div class="dp-wrap">
-              <table class="dienstplan-tabelle">
-                <thead>
-                  <tr><th>Datum</th><th>Zeit</th><th>Objekt</th><th>Funktion</th><th>Hinweis</th></tr>
-                </thead>
-                <tbody id="dienstplanBody"></tbody>
-              </table>
-            </div>
-            <div class="test-hinweis" style="margin-top:14px;">Beispiel-Dienstplan für die Woche 16. bis 22. November 2026 (32 Einsatzstunden, alle Ruhezeiten eingehalten). Im Live-Betrieb wird der Plan zentral erstellt und automatisch angezeigt; neue Einträge erscheinen sofort nach Veröffentlichung durch die Einsatzleitung.</div>
-          </div>
-          <div class="ma-panel" id="tab-schulungen">
-            <div class="schulung">
-              <div><strong>Erste-Hilfe-Auffrischung</strong><span>Mi, 25.11.2026, 09:00–16:00 · Schulungsraum Frankfurt</span></div>
-              <span class="status-pill status-ok">angemeldet</span>
-            </div>
-            <div class="schulung">
-              <div><strong>Einsatzdokumentation – digitale Meldewege</strong><span>Fr, 05.12.2026, 14:00–17:00 · Online-Schulung</span></div>
-              <span class="status-pill status-ok">angemeldet</span>
-            </div>
-            <div class="schulung">
-              <div><strong>Brandschutz-Unterweisung</strong><span>Mo, 14.12.2026, 08:00–12:00 · Objekt Bürozentrum Frankfurt</span></div>
-              <span class="status-pill status-offen">Anmeldung erforderlich</span>
-            </div>
-            <div class="schulung">
-              <div><strong>Unterrichtung nach § 34a GewO</strong><span>Nachweis gültig bis 31.03.2027</span></div>
-              <span class="status-pill status-ok">gültig</span>
-            </div>
-            <div class="test-hinweis">Beispieltermine. Im Live-Betrieb melden Sie sich hier direkt zu Schulungen an und laden Ihre Nachweise hoch.</div>
-          </div>
-          <div class="ma-panel" id="tab-mitteilungen">
-            <div id="maNewsList"></div>
-            <div class="test-hinweis">Mitteilungen werden von der Einsatzleitung über den Admin-Bereich veröffentlicht (Demo: nur in dieser Sitzung sichtbar).</div>
-          </div>
-          <div class="ma-panel" id="tab-dokumente">
-            <div class="dok-grid">
-              <button class="dok-btn" type="button" onclick="dokumentHinweis('Dienstanweisung Objektschutz')">Dienstanweisung Objektschutz</button>
-              <button class="dok-btn" type="button" onclick="dokumentHinweis('Checkliste Schichtübergabe')">Checkliste Schichtübergabe</button>
-              <button class="dok-btn" type="button" onclick="dokumentHinweis('Urlaubsantrag (Formular)')">Urlaubsantrag</button>
-              <button class="dok-btn" type="button" onclick="dokumentHinweis('Stundenzettel')">Stundenzettel</button>
-            </div>
-            <div class="dok-hinweis" id="dokHinweis"></div>
-            <form id="wunschForm" novalidate>
-              <div class="form-reihe">
-                <div>
-                  <label for="wunsch-zeitraum">Dienst- oder Urlaubswunsch: Zeitraum *</label>
-                  <input id="wunsch-zeitraum" type="text" placeholder="z. B. 30.11.–04.12.2026" />
-                </div>
-                <div>
-                  <label for="wunsch-grund">Anliegen (optional)</label>
-                  <input id="wunsch-grund" type="text" placeholder="z. B. Urlaub, Wunscheinsatz, Verfügbarkeit" />
-                </div>
-              </div>
-              <div class="test-hinweis">Ihr Wunsch wird an m.eroglu@m-safety-solution.de gesendet.</div>
-              <button type="submit" class="btn btn-gold">Wunsch senden</button>
-            </form>
-            <div class="erfolg" id="wunsch-erfolg"></div>
-            <div class="kopierbereich" id="wunsch-kopie">
-              <label for="wunsch-kopietext">Falls sich kein E-Mail-Programm öffnet: Nachricht markieren, kopieren und manuell senden.</label>
-              <textarea id="wunsch-kopietext" rows="5" readonly></textarea>
-            </div>
+            <p style="font-size:0.8rem;color:#7c8a99;margin-top:14px;">Hinweis: In dieser Vorschau werden Konten und Dokumente nur im jeweiligen Browser gespeichert. Für den Live-Betrieb wird eine Server-Lösung mit verschlüsselter Übertragung eingerichtet.</p>
           </div>
         </div>
       </section>
@@ -1219,12 +1204,146 @@
       </div>
     </div>
 
+    <!-- Mitarbeiter-Portal (Vollbild nach der Anmeldung) -->
+    <div class="ma-seite" id="maSeite" role="dialog" aria-label="Mitarbeiter-Portal">
+      <div class="ma-kopfbereich">
+        <div class="ma-marke">
+          <span>M&amp;I Safety - Solution GmbH</span>
+          <strong>Mitarbeiter-Portal</strong>
+        </div>
+        <div class="ma-benutzer">
+          <span id="maGruss">–</span>
+          <button class="btn btn-gold" type="button" onclick="maAbmelden()">Beenden</button>
+        </div>
+      </div>
+      <div class="ma-haupt">
+        <nav class="ma-menue" aria-label="Portal-Menü">
+          <button class="ma-menue-btn aktiv" type="button" data-ma-tab="start" onclick="maTabWechseln('start')">Start</button>
+          <button class="ma-menue-btn" type="button" data-ma-tab="daten" onclick="maTabWechseln('daten')">Meine Daten</button>
+          <button class="ma-menue-btn" type="button" data-ma-tab="dienstplan" onclick="maTabWechseln('dienstplan')">Dienstplan</button>
+          <button class="ma-menue-btn" type="button" data-ma-tab="lohn" onclick="maTabWechseln('lohn')">Lohnabrechnung</button>
+          <button class="ma-menue-btn" type="button" data-ma-tab="mitteilungen" onclick="maTabWechseln('mitteilungen')">Mitteilungen</button>
+          <button class="ma-menue-btn" type="button" data-ma-tab="wuensche" onclick="maTabWechseln('wuensche')">Wünsche</button>
+        </nav>
+        <main class="ma-inhalt-bereich">
+          <section class="ma-inhalt aktiv" id="ma-tab-start">
+            <h2>Willkommen im Mitarbeiter-Portal</h2>
+            <p>Hier finden Sie Ihren Dienstplan, Ihre Lohnabrechnungen und Mitteilungen der Einsatzleitung. Über die Rubrik Wünsche können Sie Dienst- oder Urlaubswünsche übermitteln.</p>
+            <div class="ma-start-kacheln">
+              <div class="ma-kachel">
+                <h3>Dienstplan</h3>
+                <p>Ihre aktuellen Einsätze mit Zeiten und Objekten, inklusive Download als Excel-Tabelle und Druckansicht.</p>
+                <button class="btn btn-navy" type="button" onclick="maTabWechseln('dienstplan')">Dienstplan öffnen</button>
+              </div>
+              <div class="ma-kachel">
+                <h3>Lohnabrechnung</h3>
+                <p>Elektronische Abrechnungen, geschützt durch Ihre persönliche zehnstellige Bewachernummer.</p>
+                <button class="btn btn-navy" type="button" onclick="maTabWechseln('lohn')">Abrechnungen öffnen</button>
+              </div>
+              <div class="ma-kachel">
+                <h3>Mitteilungen</h3>
+                <p>Aktuelle Informationen und Rundschreiben der Einsatzleitung.</p>
+                <button class="btn btn-navy" type="button" onclick="maTabWechseln('mitteilungen')">Mitteilungen öffnen</button>
+              </div>
+              <div class="ma-kachel">
+                <h3>Wünsche</h3>
+                <p>Dienst- und Urlaubswünsche direkt an die Einsatzleitung übermitteln.</p>
+                <button class="btn btn-navy" type="button" onclick="maTabWechseln('wuensche')">Wunsch einreichen</button>
+              </div>
+            </div>
+          </section>
+          <section class="ma-inhalt" id="ma-tab-daten">
+            <h2>Meine Daten</h2>
+            <table class="ma-daten-tabelle"><tbody id="maDatenBody"></tbody></table>
+            <h3>Bewachernummer für die Lohnabrechnung</h3>
+            <p style="font-size:0.9rem;">Die Bewachernummer ist eine zehnstellige Nummer, die Sie selbst wählen. Sie schützt den Download Ihrer Lohnabrechnungen. Aus Sicherheitsgründen wird sie niemals per E-Mail übermittelt.</p>
+            <input id="ma-bewachernummer" type="password" inputmode="numeric" maxlength="10" placeholder="Zehnstellige Bewachernummer" />
+            <div class="fehler" id="e-bewachernummer">Bitte genau zehn Ziffern eingeben.</div>
+            <div class="admin-actions" style="margin-top:10px;">
+              <button class="btn btn-gold" type="button" onclick="bewachernummerSpeichern()">Bewachernummer speichern</button>
+            </div>
+            <p id="bewachernummerStatus" style="font-size:0.85rem;margin-top:10px;"></p>
+          </section>
+          <section class="ma-inhalt" id="ma-tab-dienstplan">
+            <h2>Dienstplan</h2>
+            <div class="ma-toolbar">
+              <button class="btn btn-navy" type="button" onclick="dienstplanCsvHerunterladen()">Als Excel-Tabelle (CSV) herunterladen</button>
+              <button class="btn btn-ghost" type="button" onclick="dienstplanDrucken()">Als PDF drucken</button>
+            </div>
+            <div class="dp-wrap">
+              <table class="dienstplan-tabelle">
+                <thead><tr><th>Datum</th><th>Zeit</th><th>Objekt</th><th>Funktion</th><th>Hinweis</th></tr></thead>
+                <tbody id="dienstplanBody"></tbody>
+              </table>
+            </div>
+          </section>
+          <section class="ma-inhalt" id="ma-tab-lohn">
+            <h2>Lohnabrechnung</h2>
+            <p style="font-size:0.9rem;">Ihre Abrechnungen werden elektronisch bereitgestellt; ein Postweg ist nicht mehr erforderlich. Der Download ist mit Ihrer persönlichen zehnstelligen Bewachernummer geschützt.</p>
+            <div class="lohn-schutz">Sicherheitshinweis: Die Bewachernummer wird ausdrücklich nicht per E-Mail versendet und sollte niemandem mitgeteilt werden. In der Server-Lösung wird das Abrechnungsdokument zusätzlich verschlüsselt hinterlegt und kann verschlüsselt per E-Mail zugestellt werden.</div>
+            <div id="lohnListe"></div>
+            <div class="lohn-schutz" id="lohnHinweisBewacher" style="display:none;">Bitte legen Sie zuerst unter „Meine Daten" Ihre persönliche zehnstellige Bewachernummer fest. Ohne diese Nummer ist kein Download möglich.</div>
+            <div id="lohnFreigabe" style="display:none;border:1px solid var(--linie);border-radius:12px;padding:18px 20px;background:#fff;margin-top:14px;">
+              <p style="font-size:0.9rem;color:var(--grau);">Download „<span id="lohnFreigabeName">–</span>" – bitte geben Sie Ihre zehnstellige Bewachernummer ein:</p>
+              <input id="lohnBewacherEingabe" type="password" inputmode="numeric" maxlength="10" placeholder="Bewachernummer" />
+              <div class="fehler" id="e-lohn-download">Die Bewachernummer ist falsch. Bitte prüfen Sie Ihre Eingabe.</div>
+              <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;">
+                <button class="btn btn-navy" type="button" onclick="lohnDownloadFreigeben()">Dokument herunterladen</button>
+                <button class="btn btn-ghost" type="button" onclick="lohnDialogSchliessen()">Abbrechen</button>
+              </div>
+            </div>
+          </section>
+          <section class="ma-inhalt" id="ma-tab-mitteilungen">
+            <h2>Mitteilungen</h2>
+            <div id="maNewsList"></div>
+          </section>
+          <section class="ma-inhalt" id="ma-tab-wuensche">
+            <h2>Wünsche</h2>
+            <p style="font-size:0.9rem;">Übermitteln Sie Dienst- oder Urlaubswünsche direkt an die Einsatzleitung.</p>
+            <form id="wunschForm" novalidate>
+              <div style="margin-bottom:14px;">
+                <label for="wunsch-zeitraum">Zeitraum *</label>
+                <input id="wunsch-zeitraum" type="text" placeholder="z. B. 23.11.2026 bis 25.11.2026" />
+              </div>
+              <div style="margin-bottom:14px;">
+                <label for="wunsch-grund">Anliegen</label>
+                <textarea id="wunsch-grund" rows="3" placeholder="Kurze Erläuterung (optional)"></textarea>
+              </div>
+              <button type="submit" class="btn btn-gold">Wunsch übermitteln</button>
+              <div class="erfolg" id="wunsch-erfolg" style="display:none;"></div>
+              <div id="wunsch-kopie" style="display:none;">
+                <p style="font-size:0.85rem;margin:14px 0 6px;">Nachricht zum Kopieren, falls kein E-Mail-Programm geöffnet wurde:</p>
+                <textarea id="wunsch-kopietext" rows="7" readonly></textarea>
+              </div>
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- Dialog: eigenes Passwort festlegen (Erstanmeldung mit Einmalpasswort) -->
+    <div class="ma-dialog" id="maPasswortDialog" role="dialog" aria-label="Eigenes Passwort festlegen">
+      <div class="ma-dialog-box">
+        <h3>Bitte legen Sie Ihr eigenes Passwort fest</h3>
+        <p>Sie haben sich mit einem einmalig gültigen Passwort angemeldet. Wählen Sie jetzt ein eigenes Passwort mit mindestens acht Zeichen. Das Einmalpasswort ist ab jetzt ungültig.</p>
+        <form id="maNeuForm" novalidate>
+          <label for="ma-neu-1">Neues Passwort *</label>
+          <input id="ma-neu-1" type="password" autocomplete="new-password" />
+          <label for="ma-neu-2">Neues Passwort wiederholen *</label>
+          <input id="ma-neu-2" type="password" autocomplete="new-password" />
+          <div class="fehler" id="e-ma-neu">Das Passwort muss mindestens acht Zeichen lang sein und beide Eingaben müssen übereinstimmen.</div>
+          <button type="submit" class="btn btn-gold">Passwort festlegen und Portal öffnen</button>
+        </form>
+      </div>
+    </div>
+
+
     <!-- Admin-Bereich (Demo) -->
     <div class="admin-overlay" id="adminOverlay">
       <div class="admin-panel">
         <button class="admin-x" onclick="adminSchliessen()" aria-label="Admin-Bereich schließen">×</button>
         <h3>Admin-Bereich</h3>
-        <div class="sub">Demo-Ansicht: In dieser Vorschau werden Einträge nur temporär im Browser angezeigt. Ein echter Admin-Bereich erfordert beim Live-Betrieb einen Server mit Datenbank und geschützter Anmeldung.</div>
+        <div class="sub">Verwaltungsbereich: Anmeldung mit Benutzername und einmalig gültigem Schlüssel. Konten, Dienstplan, Mitteilungen und Lohnabrechnungen werden in dieser Vorschau im jeweiligen Browser gespeichert; für den Live-Betrieb wird eine Server-Lösung mit Datenbank eingerichtet.</div>
         <div id="adminLogin">
           <div class="admin-feld">
             <label for="adminBenutzer">Benutzername</label>
@@ -1280,6 +1399,37 @@
           </div>
           <div class="admin-actions">
             <button class="btn btn-gold" onclick="dienstplanHinzufuegen()">Eintrag hinzufügen</button>
+          </div>
+          <div class="admin-feld" style="margin-top:24px;">
+            <label for="kontoName">Mitarbeiter-Konto anlegen</label>
+            <input type="text" id="kontoName" placeholder="Name der Mitarbeiterin / des Mitarbeiters" />
+            <input type="text" id="kontoEmail" placeholder="E-Mail-Adresse des Zugangs" style="margin-top:8px;" />
+            <div class="fehler" id="e-konto">Bitte Name und gültige E-Mail-Adresse angeben.</div>
+            <div class="admin-actions">
+              <button class="btn btn-gold" onclick="kontoAnlegen()">Konto anlegen und Zugang vorbereiten</button>
+            </div>
+            <p style="font-size:0.8rem;color:#7c8a99;margin-top:8px;">Das E-Mail-Programm öffnet sich mit den Zugangsdaten. Das einmalig gültige Passwort wird aus Sicherheitsgründen auf separatem Weg übermittelt und muss nach der ersten Anmeldung durch ein eigenes ersetzt werden.</p>
+            <div id="adminKontoListe" style="margin-top:12px;"></div>
+          </div>
+          <div class="admin-feld" style="margin-top:24px;">
+            <label for="dienstplanDatei">Dienstplan aus Excel-Tabelle übernehmen (CSV-Export aus Excel)</label>
+            <input type="file" id="dienstplanDatei" accept=".csv,text/csv" style="display:none;" onchange="dienstplanDateiGewaehlt(this)" />
+            <div class="admin-actions">
+              <button class="btn btn-gold" onclick="document.getElementById('dienstplanDatei').click()">Excel-Tabelle hochladen</button>
+            </div>
+            <p style="font-size:0.8rem;color:#7c8a99;margin-top:8px;">Erwartete Spalten: Datum; Zeit; Objekt; Funktion; Hinweis. Die Tabelle ersetzt den aktuellen Dienstplan.</p>
+          </div>
+          <div class="admin-feld" style="margin-top:24px;">
+            <label for="lohnKonto">Lohnabrechnung bereitstellen</label>
+            <select id="lohnKonto" style="width:100%;"></select>
+            <input type="text" id="lohnZeitraum" placeholder="Abrechnungszeitraum, z. B. November 2026" style="margin-top:8px;" />
+            <div class="lohn-dropzone" id="lohnDropzone">PDF-Datei hierher ziehen oder klicken, um die Lohnabrechnung auszuwählen</div>
+            <input type="file" id="lohnDatei" accept="application/pdf,.pdf" style="display:none;" />
+            <div class="fehler" id="e-lohn">Bitte Mitarbeiterin oder Mitarbeiter, Zeitraum und eine PDF-Datei angeben.</div>
+            <div class="admin-actions">
+              <button class="btn btn-gold" onclick="lohnBereitstellen()">Abrechnung bereitstellen und per E-Mail ankündigen</button>
+            </div>
+            <p style="font-size:0.8rem;color:#7c8a99;margin-top:8px;">Die Mitarbeiterin oder der Mitarbeiter erhält eine E-Mail-Benachrichtigung über die bereitgestellte Abrechnung. Der Download im Portal ist mit der persönlichen zehnstelligen Bewachernummer geschützt; diese Nummer wird aus Sicherheitsgründen niemals per E-Mail übermittelt.</p>
           </div>
           <div class="admin-feld" style="margin-top:24px;">
             <label for="newsTitel">Aktuelle Meldung veröffentlichen (öffentlicher Bereich)</label>
@@ -1441,78 +1591,295 @@
         }
       });
 
-      /* Mitarbeiter-Bereich (Demo) */
-      const MA_KONTO = { nummer: "1001", passwort: "demo1234", name: "Demo-Zugang" };
-      let dienstplanDaten = [
+      /* Mitarbeiter-Portal (Demo-Speicherung pro Gerät; produktiv als Server-Lösung) */
+      const MA_SPEICHER = { konten: "mi_ma_konten", dienstplan: "mi_dienstplan", mitteilungen: "mi_mitteilungen", loehne: "mi_loehne" };
+      function maSpeichern(schluessel, wert) {
+        try { localStorage.setItem(schluessel, JSON.stringify(wert)); } catch (e) {}
+      }
+      function maLaden(schluessel, standard) {
+        try {
+          const r = localStorage.getItem(schluessel);
+          return r === null ? standard : JSON.parse(r);
+        } catch (e) { return standard; }
+      }
+      async function textZuHash(text) {
+        const daten = new TextEncoder().encode(text);
+        const hash = await crypto.subtle.digest("SHA-256", daten);
+        return Array.from(new Uint8Array(hash)).map(function (b) { return b.toString(16).padStart(2, "0"); }).join("");
+      }
+      function einmalpasswortErzeugen() {
+        const abc = "ABCDEFGHJKMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789";
+        let s = "";
+        for (let i = 0; i < 20; i++) s += abc[Math.floor(Math.random() * abc.length)];
+        return s;
+      }
+      let maKonten = maLaden(MA_SPEICHER.konten, []);
+      let dienstplanDaten = maLaden(MA_SPEICHER.dienstplan, [
         { datum: "Mo 16.11.2026", zeit: "07:00–15:00", objekt: "Logistikzentrum Kelsterbach", funktion: "Objektschutz – Zutrittskontrolle", hinweis: "Übergabe 06:45 am Pförtnerhaus" },
         { datum: "Di 17.11.2026", zeit: "07:00–15:00", objekt: "Bürozentrum Frankfurt", funktion: "Empfangs- und Pförtnerdienst", hinweis: "Besucherliste prüfen" },
-        { datum: "Mi 18.11.2026", zeit: "–", objekt: "Kein Einsatz geplant", funktion: "–", hinweis: "Wunschdienst über Formular möglich" },
+        { datum: "Mi 18.11.2026", zeit: "–", objekt: "Kein Einsatz geplant", funktion: "–", hinweis: "Wunschdienst über das Portal möglich" },
         { datum: "Do 19.11.2026", zeit: "15:00–23:00", objekt: "Bürozentrum Frankfurt", funktion: "Objektschutz – Spätdienst", hinweis: "Schichtübergabe 14:45" },
         { datum: "Fr 20.11.2026", zeit: "–", objekt: "Kein Einsatz geplant", funktion: "–", hinweis: "" },
         { datum: "Sa 21.11.2026", zeit: "08:00–16:00", objekt: "Veranstaltungszentrum Frankfurt", funktion: "Brandwache", hinweis: "Einweisung 07:30, Feuerwehrplan mitnehmen" },
         { datum: "So 22.11.2026", zeit: "–", objekt: "Kein Einsatz geplant", funktion: "–", hinweis: "" }
-      ];
-      let maMitteilungen = [
+      ]);
+      let maMitteilungen = maLaden(MA_SPEICHER.mitteilungen, [
         { titel: "Einsatzleitung rund um die Uhr erreichbar", datum: "13.11.2026", text: "Die Einsatzleitung ist ab sofort Tag und Nacht über die bekannte Hotline erreichbar. Bei akuten Vorfällen bitte immer zuerst die Einsatzleitung informieren." },
-        { titel: "Schulungsplan aktualisiert", datum: "10.11.2026", text: "Die Termine für Erste-Hilfe-Auffrischung und Brandschutz-Unterweisung wurden aktualisiert. Bitte in der Rubrik Schulungen prüfen und die Teilnahme bestätigen." }
-      ];
+        { titel: "Schulungsplan aktualisiert", datum: "10.11.2026", text: "Die Termine für Erste-Hilfe-Auffrischung und Brandschutz-Unterweisung wurden aktualisiert. Bitte Termine bei der Verwaltung bestätigen." }
+      ]);
+      let lohnDaten = maLaden(MA_SPEICHER.loehne, []);
+      let maAngemeldet = null;
+      let lohnAuswahl = null;
+
       function renderDienstplan() {
         const body = document.getElementById("dienstplanBody");
         body.innerHTML = "";
         dienstplanDaten.forEach(function (e) {
-          const tr = document.createElement("tr");
-          if (e.zeit === "–") tr.className = "frei";
-          tr.innerHTML = "<td>" + e.datum + "</td><td>" + e.zeit + "</td><td>" + e.objekt + "</td><td>" + e.funktion + "</td><td>" + (e.hinweis !== "" ? e.hinweis : "–") + "</td>";
-          body.appendChild(tr);
+          const zeile = document.createElement("tr");
+          if (e.zeit === "–") zeile.className = "frei";
+          zeile.innerHTML = "<td>" + e.datum + "</td><td>" + e.zeit + "</td><td>" + e.objekt + "</td><td>" + e.funktion + "</td><td>" + (e.hinweis || "") + "</td>";
+          body.appendChild(zeile);
         });
       }
       function renderMitteilungen() {
         const liste = document.getElementById("maNewsList");
         liste.innerHTML = "";
         maMitteilungen.forEach(function (m) {
-          const div = document.createElement("div");
-          div.className = "ma-news-item";
-          div.innerHTML = "<strong>" + m.titel + "</strong><span>" + m.datum + " · Einsatzleitung</span><p>" + m.text + "</p>";
-          liste.appendChild(div);
+          const karte = document.createElement("div");
+          karte.className = "ma-news";
+          karte.innerHTML = "<strong>" + m.titel + "</strong><span>" + m.datum + " · Einsatzleitung</span><p>" + m.text + "</p>";
+          liste.appendChild(karte);
+        });
+        if (maMitteilungen.length === 0) liste.innerHTML = "<p class='test-hinweis'>Aktuell keine Mitteilungen.</p>";
+      }
+      function renderLohn() {
+        const liste = document.getElementById("lohnListe");
+        liste.innerHTML = "";
+        if (!maAngemeldet) return;
+        const eigene = lohnDaten.map(function (l, i) { return { l: l, i: i }; }).filter(function (x) { return x.l.nummer === maAngemeldet.nummer; });
+        if (eigene.length === 0) {
+          liste.innerHTML = "<p class='test-hinweis'>Für Sie wurde noch keine Lohnabrechnung bereitgestellt. Sobald die Verwaltung eine Abrechnung einstellt, erscheint sie an dieser Stelle.</p>";
+          return;
+        }
+        eigene.forEach(function (x) {
+          const z = document.createElement("div");
+          z.className = "lohn-zeile";
+          const info = document.createElement("span");
+          info.innerHTML = "<strong>Lohnabrechnung " + x.l.zeitraum + "</strong><br>Bereitgestellt am " + x.l.datum + " · Dokument: " + x.l.dateiName;
+          const btn = document.createElement("button");
+          btn.className = "btn btn-navy";
+          btn.type = "button";
+          btn.textContent = "Herunterladen";
+          btn.onclick = function () { lohnDownloadStarten(x.i); };
+          z.appendChild(info);
+          z.appendChild(btn);
+          liste.appendChild(z);
         });
       }
-      function maTabAktivieren(name) {
-        document.querySelectorAll(".ma-tab-btn").forEach(function (b) { b.classList.remove("aktiv"); });
-        document.querySelectorAll(".ma-panel").forEach(function (p) { p.classList.remove("aktiv"); });
-        const knopf = document.querySelector('.ma-tab-btn[data-tab="' + name + '"]');
-        if (knopf) knopf.classList.add("aktiv");
-        const panel = document.getElementById("tab-" + name);
-        if (panel) panel.classList.add("aktiv");
+      function maKontoListe() {
+        const ziel = document.getElementById("adminKontoListe");
+        if (!ziel) return;
+        ziel.innerHTML = "";
+        if (maKonten.length === 0) { ziel.innerHTML = "<p class='test-hinweis'>Noch keine Konten angelegt.</p>"; return; }
+        maKonten.forEach(function (k) {
+          const z = document.createElement("div");
+          z.className = "konto-zeile";
+          const info = document.createElement("span");
+          info.innerHTML = "<strong>" + k.name + "</strong> (" + k.nummer + ") – " + k.email + (k.einmalpasswort ? " – Einmalpasswort aktiv" : "");
+          const btn = document.createElement("button");
+          btn.className = "btn btn-navy";
+          btn.type = "button";
+          btn.textContent = "Neues Einmalpasswort";
+          btn.onclick = function () { kontoErneuern(k.nummer); };
+          z.appendChild(info);
+          z.appendChild(btn);
+          ziel.appendChild(z);
+        });
       }
-      document.querySelectorAll(".ma-tab-btn").forEach(function (b) {
-        b.addEventListener("click", function () { maTabAktivieren(b.getAttribute("data-tab")); });
-      });
-      document.getElementById("maForm").addEventListener("submit", function (e) {
+      async function kontoAnlegen() {
+        const name = document.getElementById("kontoName").value.trim();
+        const email = document.getElementById("kontoEmail").value.trim();
+        const fehler = document.getElementById("e-konto");
+        fehler.style.display = "none";
+        if (name === "" || email === "" || email.indexOf("@") === -1 || email.indexOf(".") === -1) { fehler.style.display = "block"; return; }
+        let max = 1000;
+        maKonten.forEach(function (k) { const n = parseInt(k.nummer, 10); if (!isNaN(n) && n > max) max = n; });
+        const nummer = String(max + 1);
+        const passwort = einmalpasswortErzeugen();
+        const hash = await textZuHash(passwort);
+        maKonten.push({ nummer: nummer, name: name, email: email, passwortHash: hash, einmalpasswort: true });
+        maSpeichern(MA_SPEICHER.konten, maKonten);
+        document.getElementById("kontoName").value = "";
+        document.getElementById("kontoEmail").value = "";
+        maKontoListe();
+        lohnKontoAuswahl();
+        zugangPerMailSenden(name, email, nummer);
+        adminMelden("Konto angelegt: " + name + " (Personalnummer " + nummer + "). Neues Einmalpasswort: " + passwort + " – bitte auf separatem Weg (z. B. telefonisch) übermitteln.");
+      }
+      async function kontoErneuern(nummer) {
+        const konto = maKonten.find(function (k) { return k.nummer === nummer; });
+        if (!konto) return;
+        const passwort = einmalpasswortErzeugen();
+        konto.passwortHash = await textZuHash(passwort);
+        konto.einmalpasswort = true;
+        maSpeichern(MA_SPEICHER.konten, maKonten);
+        maKontoListe();
+        zugangPerMailSenden(konto.name, konto.email, nummer);
+        adminMelden("Neues Einmalpasswort für " + konto.name + " (" + nummer + "): " + passwort + " – bitte auf separatem Weg übermitteln.");
+      }
+      function zugangPerMailSenden(name, email, nummer) {
+        const betreff = "Ihre Zugangsdaten für das Mitarbeiter-Portal der M&I Safety - Solution GmbH";
+        const zeilen = [
+          "Guten Tag " + name + ",",
+          "",
+          "für das Mitarbeiter-Portal wurde ein Zugang für Sie eingerichtet.",
+          "Personalnummer: " + nummer,
+          "",
+          "Aus Sicherheitsgründen erhalten Sie das einmalig gültige Passwort auf separatem Weg (z. B. telefonisch).",
+          "Nach der ersten Anmeldung legen Sie bitte Ihr eigenes Passwort fest.",
+          "",
+          "Mit freundlichen Grüßen",
+          "M&I Safety - Solution GmbH – Verwaltung"
+        ];
+        window.location.href = "mailto:" + encodeURIComponent(email) + "?subject=" + encodeURIComponent(betreff) + "&body=" + encodeURIComponent(zeilen.join("\r\n"));
+      }
+      document.getElementById("maForm").addEventListener("submit", async function (e) {
         e.preventDefault();
         const nummer = document.getElementById("ma-nummer").value.trim();
         const passwort = document.getElementById("ma-passwort").value;
-        if (nummer === MA_KONTO.nummer && passwort === MA_KONTO.passwort) {
-          document.getElementById("e-ma").style.display = "none";
-          document.getElementById("maLoginKarte").style.display = "none";
-          const portal = document.getElementById("maPortal");
-          portal.classList.add("sichtbar");
-          document.getElementById("maGruss").textContent = "Angemeldet als Personalnummer " + MA_KONTO.nummer + " (" + MA_KONTO.name + ")";
-          renderDienstplan();
-          renderMitteilungen();
+        const fehler = document.getElementById("e-ma");
+        fehler.style.display = "none";
+        document.getElementById("e-ma-hinweis").style.display = "none";
+        const konto = maKonten.find(function (k) { return k.nummer === nummer; });
+        if (!konto) { fehler.style.display = "block"; return; }
+        const hash = await textZuHash(passwort);
+        if (hash !== konto.passwortHash) { fehler.style.display = "block"; return; }
+        maAngemeldet = konto;
+        document.getElementById("ma-passwort").value = "";
+        if (konto.einmalpasswort) {
+          document.getElementById("maPasswortDialog").classList.add("aktiv");
         } else {
-          document.getElementById("e-ma").style.display = "block";
+          maPortalOeffnen();
         }
       });
-      function maAbmelden() {
-        document.getElementById("maPortal").classList.remove("sichtbar");
-        document.getElementById("maLoginKarte").style.display = "block";
-        document.getElementById("maForm").reset();
-        document.getElementById("e-ma").style.display = "none";
+      document.getElementById("maNeuForm").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const p1 = document.getElementById("ma-neu-1").value;
+        const p2 = document.getElementById("ma-neu-2").value;
+        const fehler = document.getElementById("e-ma-neu");
+        fehler.style.display = "none";
+        if (p1.length < 8 || p1 !== p2) { fehler.style.display = "block"; return; }
+        const hash = await textZuHash(p1);
+        const konto = maKonten.find(function (k) { return k.nummer === maAngemeldet.nummer; });
+        if (!konto) return;
+        konto.passwortHash = hash;
+        konto.einmalpasswort = false;
+        maSpeichern(MA_SPEICHER.konten, maKonten);
+        document.getElementById("ma-neu-1").value = "";
+        document.getElementById("ma-neu-2").value = "";
+        document.getElementById("maPasswortDialog").classList.remove("aktiv");
+        maPortalOeffnen();
+      });
+      document.getElementById("maVergessen").addEventListener("click", function (e) {
+        e.preventDefault();
+        const hinweis = document.getElementById("e-ma-hinweis");
+        hinweis.textContent = "Bitte wenden Sie sich an die Verwaltung. Sie erstellt ein neues, einmalig gültiges Passwort und teilt es Ihnen auf separatem Weg mit.";
+        hinweis.style.display = "block";
+      });
+      function maPortalOeffnen() {
+        const konto = maKonten.find(function (k) { return k.nummer === maAngemeldet.nummer; });
+        document.getElementById("maGruss").textContent = "Personalnummer " + maAngemeldet.nummer + " (" + maAngemeldet.name + ")";
+        document.getElementById("maDatenBody").innerHTML =
+          "<tr><td>Name</td><td>" + maAngemeldet.name + "</td></tr>" +
+          "<tr><td>Personalnummer</td><td>" + maAngemeldet.nummer + "</td></tr>" +
+          "<tr><td>E-Mail-Adresse</td><td>" + maAngemeldet.email + "</td></tr>";
+        const status = document.getElementById("bewachernummerStatus");
+        if (konto && konto.bewacherHash) {
+          status.textContent = "Es ist bereits eine Bewachernummer gespeichert. Eine erneute Eingabe ersetzt die bisherige Nummer.";
+        } else {
+          status.textContent = "Bitte legen Sie Ihre persönliche zehnstellige Bewachernummer fest. Sie ist für den Download Ihrer Lohnabrechnungen erforderlich.";
+        }
+        renderDienstplan();
+        renderMitteilungen();
+        renderLohn();
+        lohnDialogSchliessen();
+        document.getElementById("lohnHinweisBewacher").style.display = "none";
+        maTabWechseln("start");
+        document.getElementById("maSeite").classList.add("aktiv");
+        window.scrollTo(0, 0);
       }
-      function dokumentHinweis(name) {
-        const feld = document.getElementById("dokHinweis");
-        feld.style.display = "block";
-        feld.innerHTML = "<strong>" + name + ":</strong> Demo-Ansicht. Im Live-Betrieb steht hier das Dokument als PDF zum Download bereit – freigegeben nur für angemeldete Mitarbeitende.";
+      function maTabWechseln(name) {
+        document.querySelectorAll(".ma-menue-btn").forEach(function (b) {
+          b.classList.toggle("aktiv", b.getAttribute("data-ma-tab") === name);
+        });
+        document.querySelectorAll(".ma-inhalt").forEach(function (s) {
+          s.classList.toggle("aktiv", s.id === "ma-tab-" + name);
+        });
+      }
+      function maAbmelden() {
+        document.getElementById("maSeite").classList.remove("aktiv");
+        document.getElementById("ma-nummer").value = "";
+        document.getElementById("ma-passwort").value = "";
+        document.getElementById("e-ma").style.display = "none";
+        document.getElementById("e-ma-hinweis").style.display = "none";
+        lohnDialogSchliessen();
+        maAngemeldet = null;
+      }
+      async function bewachernummerSpeichern() {
+        const eingabe = document.getElementById("ma-bewachernummer").value.trim();
+        const fehler = document.getElementById("e-bewachernummer");
+        const status = document.getElementById("bewachernummerStatus");
+        fehler.style.display = "none";
+        status.textContent = "";
+        if (!/^\d{10}$/.test(eingabe)) { fehler.style.display = "block"; return; }
+        const konto = maKonten.find(function (k) { return k.nummer === maAngemeldet.nummer; });
+        if (!konto) return;
+        konto.bewacherHash = await textZuHash(eingabe);
+        maSpeichern(MA_SPEICHER.konten, maKonten);
+        document.getElementById("ma-bewachernummer").value = "";
+        status.textContent = "Ihre Bewachernummer ist gespeichert. Sie schützt ab sofort den Download Ihrer Lohnabrechnungen.";
+      }
+      function lohnDownloadStarten(idx) {
+        const fehler = document.getElementById("e-lohn-download");
+        fehler.style.display = "none";
+        const konto = maKonten.find(function (k) { return k.nummer === maAngemeldet.nummer; });
+        const hinweis = document.getElementById("lohnHinweisBewacher");
+        const freigabe = document.getElementById("lohnFreigabe");
+        if (!konto || !konto.bewacherHash) {
+          freigabe.style.display = "none";
+          hinweis.style.display = "block";
+          return;
+        }
+        hinweis.style.display = "none";
+        lohnAuswahl = idx;
+        document.getElementById("lohnFreigabeName").textContent = lohnDaten[idx].dateiName;
+        document.getElementById("lohnBewacherEingabe").value = "";
+        freigabe.style.display = "block";
+      }
+      function lohnDialogSchliessen() {
+        const feld = document.getElementById("lohnFreigabe");
+        if (feld) feld.style.display = "none";
+        const fehler = document.getElementById("e-lohn-download");
+        if (fehler) fehler.style.display = "none";
+        lohnAuswahl = null;
+      }
+      async function lohnDownloadFreigeben() {
+        if (lohnAuswahl === null || !maAngemeldet) return;
+        const eingabe = document.getElementById("lohnBewacherEingabe").value.trim();
+        const fehler = document.getElementById("e-lohn-download");
+        const konto = maKonten.find(function (k) { return k.nummer === maAngemeldet.nummer; });
+        if (!konto) return;
+        const hash = await textZuHash(eingabe);
+        if (eingabe.length !== 10 || hash !== konto.bewacherHash) { fehler.style.display = "block"; return; }
+        fehler.style.display = "none";
+        const l = lohnDaten[lohnAuswahl];
+        const link = document.createElement("a");
+        link.href = l.dataUri;
+        link.download = l.dateiName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        lohnDialogSchliessen();
       }
       document.getElementById("wunschForm").addEventListener("submit", function (e) {
         e.preventDefault();
@@ -1520,17 +1887,70 @@
         const grund = document.getElementById("wunsch-grund").value.trim();
         if (zeitraum === "") return;
         sendePerMail(
-          "Dienst-/Urlaubswunsch über Mitarbeiter-Bereich",
+          "Dienst-/Urlaubswunsch über das Mitarbeiter-Portal",
           [
-            "Personalnummer: " + MA_KONTO.nummer,
+            "Personalnummer: " + (maAngemeldet ? maAngemeldet.nummer + " (" + maAngemeldet.name + ")" : "-"),
             "Zeitraum: " + zeitraum,
             "Anliegen: " + (grund !== "" ? grund : "-"),
             "",
-            "Gesendet über den Mitarbeiter-Bereich der Website."
+            "Gesendet über das Mitarbeiter-Portal der Website."
           ],
           "wunsch-erfolg", "wunsch-kopie", "wunsch-kopietext"
         );
       });
+      function dienstplanAlsCsv() {
+        const kopf = ["Datum", "Zeit", "Objekt", "Funktion", "Hinweis"];
+        const zeilen = [kopf].concat(dienstplanDaten.map(function (z) { return [z.datum, z.zeit, z.objekt, z.funktion, z.hinweis || ""]; }));
+        return zeilen.map(function (z) {
+          return z.map(function (feld) { return '"' + String(feld).replace(/"/g, '""') + '"'; }).join(";");
+        }).join("\r\n");
+      }
+      function dienstplanCsvHerunterladen() {
+        const blob = new Blob(["\uFEFF" + dienstplanAlsCsv()], { type: "text/csv;charset=utf-8" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "dienstplan-mi-safety.csv";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(link.href);
+      }
+      function dienstplanDrucken() {
+        const alt = document.getElementById("druckBereich");
+        if (alt) alt.remove();
+        const div = document.createElement("div");
+        div.id = "druckBereich";
+        let zeilen = "";
+        dienstplanDaten.forEach(function (e) {
+          zeilen += "<tr><td>" + e.datum + "</td><td>" + e.zeit + "</td><td>" + e.objekt + "</td><td>" + e.funktion + "</td><td>" + (e.hinweis || "") + "</td></tr>";
+        });
+        div.innerHTML = "<h2>M&amp;I Safety - Solution GmbH – Dienstplan</h2><table><thead><tr><th>Datum</th><th>Zeit</th><th>Objekt</th><th>Funktion</th><th>Hinweis</th></tr></thead><tbody>" + zeilen + "</tbody></table>";
+        document.body.appendChild(div);
+        window.print();
+      }
+      function dienstplanDateiGewaehlt(input) {
+        if (!input.files || !input.files[0]) return;
+        const leser = new FileReader();
+        leser.onload = function () {
+          const text = String(leser.result).replace(/^\uFEFF/, "");
+          const zeilen = text.split(/\r?\n/).filter(function (z) { return z.trim() !== ""; });
+          if (zeilen.length < 2) { adminMelden("Die Datei enthält keine Dienstplan-Einträge."); return; }
+          const trenner = zeilen[0].indexOf(";") !== -1 ? ";" : ",";
+          const daten = [];
+          for (let i = 1; i < zeilen.length; i++) {
+            const felder = zeilen[i].split(trenner).map(function (f) { return f.trim().replace(/^"/, "").replace(/"$/, "").replace(/""/g, '"'); });
+            if (felder.length < 3 || felder[0] === "") continue;
+            daten.push({ datum: felder[0], zeit: felder[1] || "–", objekt: felder[2], funktion: felder[3] || "", hinweis: felder[4] || "" });
+          }
+          if (daten.length === 0) { adminMelden("Keine gültigen Zeilen gefunden. Erwartete Spalten: Datum; Zeit; Objekt; Funktion; Hinweis."); return; }
+          dienstplanDaten = daten;
+          maSpeichern(MA_SPEICHER.dienstplan, dienstplanDaten);
+          renderDienstplan();
+          adminMelden("Dienstplan aus Excel-Tabelle übernommen: " + daten.length + " Einträge. Zum Verteilen kann die Tabelle zusätzlich verschlüsselt per E-Mail oder Post versendet werden.");
+        };
+        leser.readAsText(input.files[0]);
+        input.value = "";
+      }
 
       /* Rechtstexte (Beispieltexte, vor Veröffentlichung rechtlich prüfen lassen) */
       const RECHTSTEXTE = {
@@ -1640,15 +2060,16 @@
         adminMelden("Aktuelle Meldung im öffentlichen Bereich veröffentlicht (" + heute + ").");
       }
 
-      /* Admin: Veröffentlichungen für den Mitarbeiter-Bereich */
+      /* Admin: Veröffentlichungen und Bereitstellungen für das Mitarbeiter-Portal */
       function mitteilungVeroeffentlichen() {
         const text = document.getElementById("maNewsText").value.trim();
         if (text === "") return;
         const heute = new Date().toLocaleDateString("de-DE");
         maMitteilungen.unshift({ titel: "Neue Mitteilung der Einsatzleitung", datum: heute, text: text });
+        maSpeichern(MA_SPEICHER.mitteilungen, maMitteilungen);
         renderMitteilungen();
         document.getElementById("maNewsText").value = "";
-        adminMelden("Mitteilung im Mitarbeiter-Bereich veröffentlicht (" + heute + "). Sichtbar in der Rubrik Mitteilungen.");
+        adminMelden("Mitteilung im Mitarbeiter-Portal veröffentlicht (" + heute + ").");
       }
       function dienstplanHinzufuegen() {
         const datum = document.getElementById("dpDatum").value.trim();
@@ -1667,12 +2088,96 @@
           funktion: funktion !== "" ? funktion : "Wird noch festgelegt",
           hinweis: hinweis
         });
+        maSpeichern(MA_SPEICHER.dienstplan, dienstplanDaten);
         renderDienstplan();
         ["dpDatum", "dpZeit", "dpObjekt", "dpFunktion", "dpHinweis"].forEach(function (id) {
           document.getElementById(id).value = "";
         });
         adminMelden("Dienstplaneintrag hinzugefügt: " + datum + ", " + objekt + ".");
       }
+      let lohnCache = null;
+      function lohnKontoAuswahl() {
+        const wahl = document.getElementById("lohnKonto");
+        if (!wahl) return;
+        wahl.innerHTML = "";
+        if (maKonten.length === 0) {
+          const o = document.createElement("option");
+          o.value = "";
+          o.textContent = "Bitte zuerst ein Mitarbeiter-Konto anlegen";
+          wahl.appendChild(o);
+          return;
+        }
+        maKonten.forEach(function (k) {
+          const o = document.createElement("option");
+          o.value = k.nummer;
+          o.textContent = k.nummer + " – " + k.name;
+          wahl.appendChild(o);
+        });
+      }
+      function lohnDateiGewaehlt(datei) {
+        if (!datei) return;
+        if (datei.size > 2 * 1024 * 1024) { adminMelden("Bitte eine PDF-Datei mit höchstens 2 MB auswählen. Größere Dateien werden erst in der Server-Lösung unterstützt."); return; }
+        if (datei.type !== "application/pdf" && !/\.pdf$/i.test(datei.name)) { adminMelden("Bitte eine PDF-Datei auswählen."); return; }
+        const leser = new FileReader();
+        leser.onload = function () {
+          lohnCache = { name: datei.name, dataUri: String(leser.result) };
+          adminMelden("Datei ausgewählt: " + datei.name + ". Bitte Zeitraum eintragen und die Abrechnung bereitstellen.");
+        };
+        leser.readAsDataURL(datei);
+      }
+      function lohnBereitstellen() {
+        const nummer = document.getElementById("lohnKonto").value;
+        const zeitraum = document.getElementById("lohnZeitraum").value.trim();
+        const fehler = document.getElementById("e-lohn");
+        fehler.style.display = "none";
+        if (nummer === "" || zeitraum === "" || !lohnCache) { fehler.style.display = "block"; return; }
+        const konto = maKonten.find(function (k) { return k.nummer === nummer; });
+        if (!konto) { fehler.style.display = "block"; return; }
+        const heute = new Date().toLocaleDateString("de-DE");
+        lohnDaten.unshift({ nummer: nummer, name: konto.name, email: konto.email, zeitraum: zeitraum, datum: heute, dateiName: lohnCache.name, dataUri: lohnCache.dataUri });
+        let gespeichert = true;
+        try { localStorage.setItem(MA_SPEICHER.loehne, JSON.stringify(lohnDaten)); } catch (e) { gespeichert = false; }
+        lohnCache = null;
+        document.getElementById("lohnZeitraum").value = "";
+        if (!gespeichert) {
+          lohnDaten.shift();
+          adminMelden("Die Datei ist für die Demo-Speicherung im Browser zu groß. In der Server-Lösung wird die Abrechnung verschlüsselt hinterlegt und verschlüsselt per E-Mail zugestellt.");
+          return;
+        }
+        const betreff = "Ihre Lohnabrechnung " + zeitraum + " – M&I Safety - Solution GmbH";
+        const zeilen = [
+          "Guten Tag " + konto.name + ",",
+          "",
+          "Ihre Lohnabrechnung für den Zeitraum " + zeitraum + " wurde im Mitarbeiter-Portal bereitgestellt.",
+          "Der Download ist mit Ihrer persönlichen zehnstelligen Bewachernummer geschützt.",
+          "Aus Sicherheitsgründen wird die Bewachernummer niemals per E-Mail übermittelt.",
+          "Falls Sie Ihre Bewachernummer noch nicht festgelegt haben, können Sie dies im Portal unter „Meine Daten“ nachholen.",
+          "",
+          "Mit freundlichen Grüßen",
+          "M&I Safety - Solution GmbH – Verwaltung"
+        ];
+        window.location.href = "mailto:" + encodeURIComponent(konto.email) + "?subject=" + encodeURIComponent(betreff) + "&body=" + encodeURIComponent(zeilen.join("\r\n"));
+        adminMelden("Lohnabrechnung " + zeitraum + " für " + konto.name + " (" + nummer + ") bereitgestellt. Die E-Mail-Benachrichtigung wurde vorbereitet.");
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        const zone = document.getElementById("lohnDropzone");
+        const feld = document.getElementById("lohnDatei");
+        if (!zone || !feld) return;
+        zone.addEventListener("click", function () { feld.click(); });
+        feld.addEventListener("change", function () {
+          if (feld.files && feld.files[0]) lohnDateiGewaehlt(feld.files[0]);
+          feld.value = "";
+        });
+        ["dragenter", "dragover"].forEach(function (name) {
+          zone.addEventListener(name, function (e) { e.preventDefault(); zone.classList.add("drag"); });
+        });
+        ["dragleave", "drop"].forEach(function (name) {
+          zone.addEventListener(name, function (e) { e.preventDefault(); zone.classList.remove("drag"); });
+        });
+        zone.addEventListener("drop", function (e) {
+          if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) lohnDateiGewaehlt(e.dataTransfer.files[0]);
+        });
+      });
 
       /* Admin-Bereich (Demo) */
       const adminOverlay = document.getElementById("adminOverlay");
@@ -1686,22 +2191,29 @@
         document.getElementById("adminInhalt").style.display = "none";
         document.getElementById("e-admin").style.display = "none";
       }
-      const ADMIN_KONTO = { benutzer: "WNHQS76F6E", schluessel: "xxgpa63YHHbMe3nwAcwyQYq9kXUMpyt5" };
-      function adminEinloggen() {
+      const ADMIN_PRUEFWERT = {
+        benutzer: "f44d08517ddc29e6ff3ece2cb2c9088206fa1e22a2985f8e2d44cc59954c92c6",
+        schluessel: "aae6b105f8b36473eee959540de34d00192ba2ac768d3a330bdec7633838fe24"
+      };
+      async function adminEinloggen() {
         const ben = document.getElementById("adminBenutzer").value.trim();
         const key = document.getElementById("adminPw").value;
         const fehler = document.getElementById("e-admin");
         fehler.style.display = "none";
         if (localStorage.getItem("adminSchluesselVerbraucht") === "1") {
-          fehler.textContent = "Der Einmalschlüssel wurde bereits verwendet und ist ungültig. Bitte neuen Schlüssel anlegen.";
+          fehler.textContent = "Der Einmalschlüssel wurde auf diesem Gerät bereits verwendet und ist ungültig. Bitte neuen Schlüssel anlegen.";
           fehler.style.display = "block";
           return;
         }
-        if (ben === ADMIN_KONTO.benutzer && key === ADMIN_KONTO.schluessel) {
+        const benHash = await textZuHash(ben);
+        const keyHash = await textZuHash(key);
+        if (benHash === ADMIN_PRUEFWERT.benutzer && keyHash === ADMIN_PRUEFWERT.schluessel) {
           localStorage.setItem("adminSchluesselVerbraucht", "1");
           document.getElementById("adminLogin").style.display = "none";
           document.getElementById("adminInhalt").style.display = "block";
-          adminMelden("Anmeldung erfolgreich. Der Einmalschlüssel ist ab jetzt verbraucht und ungültig.");
+          maKontoListe();
+          lohnKontoAuswahl();
+          adminMelden("Anmeldung erfolgreich. Der Einmalschlüssel ist ab jetzt verbraucht und auf diesem Gerät ungültig.");
         } else {
           fehler.textContent = "Benutzername oder Einmalschlüssel ist falsch.";
           fehler.style.display = "block";
