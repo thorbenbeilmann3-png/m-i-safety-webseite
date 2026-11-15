@@ -1,0 +1,1739 @@
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M&I Safety - Solution GmbH – Sicherheit. Zuverlässigkeit. Professionelle Lösungen.</title>
+    <style>
+      :root {
+        --navy: #0d2440;
+        --navy-2: #14345c;
+        --navy-3: #1c4477;
+        --gold: #c9a227;
+        --gold-2: #e6c55c;
+        --gold-soft: #f7edcd;
+        --mist: #f4f6f9;
+        --linie: #dfe4ec;
+        --tinte: #16202e;
+        --grau: #52616f;
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        color: var(--tinte);
+        background: #fff;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { background: #fff; }
+
+      /* ---------- Kontaktleiste ---------- */
+      .topbar {
+        background: var(--navy); color: #c9d4e6; font-size: 0.82rem;
+        display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; padding: 8px 24px;
+      }
+      .topbar a { color: #d9c88a; text-decoration: none; font-weight: 600; }
+      .topbar a:hover { color: var(--gold-2); }
+      .topbar span { display: inline-flex; align-items: center; gap: 7px; }
+
+      .promo {
+        background: linear-gradient(90deg, var(--gold), #b18a1e);
+        color: #fff; text-align: center; font-weight: 700; font-size: 0.9rem;
+        padding: 10px 24px; letter-spacing: 0.02em; display: none;
+      }
+
+      /* ---------- Kopfzeile ---------- */
+      header {
+        position: sticky; top: 0; z-index: 50;
+        background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--linie);
+      }
+      .nav {
+        max-width: 1160px; margin: 0 auto; padding: 12px 24px;
+        display: flex; align-items: center; justify-content: space-between; gap: 18px;
+      }
+      .marke { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+      .marke-text { line-height: 1.3; }
+      .marke-text strong { display: block; font-size: 1.02rem; color: var(--navy); letter-spacing: 0.02em; }
+      .marke-text span { font-size: 0.66rem; color: var(--gold); font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; }
+      .nav-links { display: flex; gap: 24px; list-style: none; align-items: center; }
+      .nav-links a {
+        text-decoration: none; color: var(--grau); font-weight: 600; font-size: 0.92rem;
+        padding: 6px 2px; border-bottom: 2px solid transparent; transition: color 0.15s ease, border-color 0.15s ease;
+      }
+      .nav-links a:hover { color: var(--navy); }
+      .nav-links a.aktiv { color: var(--navy); border-bottom-color: var(--gold); }
+      .btn {
+        border: none; cursor: pointer; font-family: inherit; font-weight: 700;
+        border-radius: 8px; padding: 12px 24px; font-size: 0.93rem; text-decoration: none;
+        display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+        transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+      }
+      .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(13, 36, 64, 0.18); }
+      .btn-gold { background: linear-gradient(135deg, var(--gold), #b18a1e); color: #fff; }
+      .btn-navy { background: var(--navy); color: #fff; }
+      .btn-ghost { background: transparent; color: var(--navy); border: 1.5px solid var(--navy); }
+      .btn-ghost:hover { background: var(--mist); }
+      .btn-ghost-gold { background: transparent; color: var(--gold-2); border: 1.5px solid var(--gold); }
+      .burger { display: none; background: none; border: none; cursor: pointer; color: var(--navy); font-size: 1.5rem; }
+
+      /* ---------- Hero ---------- */
+      .hero {
+        position: relative; overflow: hidden; color: #fff;
+        background:
+          radial-gradient(1000px 500px at 85% -10%, rgba(28, 68, 119, 0.85), transparent 60%),
+          radial-gradient(800px 420px at -10% 110%, rgba(201, 162, 39, 0.18), transparent 55%),
+          linear-gradient(150deg, #0d2440 0%, #12305a 55%, #0d2440 100%);
+      }
+      .hero-inner {
+        position: relative; max-width: 1160px; margin: 0 auto; padding: 88px 24px 0;
+        display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; min-height: 500px;
+      }
+      .hero-slogan {
+        color: var(--gold-2); font-weight: 800; font-size: 0.8rem;
+        letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 18px;
+      }
+      .hero h1 { font-size: clamp(1.9rem, 4.4vw, 3rem); line-height: 1.14; letter-spacing: -0.02em; margin-bottom: 20px; }
+      .hero h1 em { font-style: normal; color: var(--gold-2); }
+      .hero p { color: #c5d2e4; font-size: 1.06rem; line-height: 1.7; max-width: 520px; margin-bottom: 32px; }
+      .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 52px; }
+      .hero-fakten {
+        position: relative; margin: 0 -24px; padding: 22px 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        display: flex; gap: 44px; flex-wrap: wrap; grid-column: 1 / -1;
+      }
+      .hero-fakt strong { display: block; font-size: 1.45rem; color: var(--gold-2); }
+      .hero-fakt span { color: #9fb2cb; font-size: 0.85rem; }
+      .hero-karte {
+        background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 18px; padding: 30px 28px; backdrop-filter: blur(6px);
+      }
+      .hero-karte h3 { font-size: 1.05rem; margin-bottom: 18px; color: var(--gold-2); letter-spacing: 0.04em; }
+      .hero-karte ul { list-style: none; }
+      .hero-karte li { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.09); color: #dbe4f0; font-size: 0.94rem; }
+      .hero-karte li:last-child { border-bottom: none; }
+      .haken {
+        width: 22px; height: 22px; border-radius: 50%; flex: 0 0 auto;
+        background: rgba(201, 162, 39, 0.22); border: 1.5px solid var(--gold); display: grid; place-items: center;
+      }
+      .haken svg { width: 11px; height: 11px; stroke: var(--gold-2); }
+
+      /* ---------- Abschnitte ---------- */
+      .abschnitt { max-width: 1160px; margin: 0 auto; padding: 84px 24px 0; }
+      .abschnitt-kopf { max-width: 680px; margin-bottom: 40px; }
+      .ueberlinie {
+        color: var(--gold); font-weight: 800; font-size: 0.78rem;
+        text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 10px;
+        display: flex; align-items: center; gap: 10px;
+      }
+      .ueberlinie::after { content: ""; width: 46px; height: 2px; background: var(--gold); }
+      .abschnitt-kopf h2 { font-size: clamp(1.5rem, 3vw, 2.15rem); letter-spacing: -0.02em; margin-bottom: 12px; }
+      .abschnitt-kopf p { color: var(--grau); line-height: 1.65; }
+
+      /* ---------- Leistungen ---------- */
+      .leistungen { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 22px; }
+      .leistung {
+        position: relative; border: 1px solid var(--linie); border-radius: 16px;
+        padding: 28px 26px; background: #fff; overflow: hidden;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      }
+      .leistung::before {
+        content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+        background: linear-gradient(90deg, var(--gold), var(--navy-2)); opacity: 0; transition: opacity 0.18s ease;
+      }
+      .leistung:hover { transform: translateY(-6px); box-shadow: 0 16px 34px rgba(13, 36, 64, 0.12); border-color: transparent; }
+      .leistung:hover::before { opacity: 1; }
+      .leistung-ico {
+        width: 52px; height: 52px; border-radius: 14px; margin-bottom: 18px;
+        background: linear-gradient(135deg, var(--navy), var(--navy-3));
+        display: grid; place-items: center; color: var(--gold-2);
+      }
+      .leistung h3 { font-size: 1.12rem; margin-bottom: 10px; }
+      .leistung > p { color: var(--grau); font-size: 0.94rem; line-height: 1.6; margin-bottom: 14px; }
+      .erklaerung {
+        background: var(--mist); border-left: 3px solid var(--gold);
+        border-radius: 0 10px 10px 0; padding: 12px 16px; font-size: 0.88rem;
+        color: #38455a; line-height: 1.55;
+      }
+      .erklaerung strong { color: var(--navy); }
+
+      /* ---------- Begriffe ---------- */
+      .begriffe { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }
+      .begriff { border: 1px solid var(--linie); border-radius: 14px; padding: 22px 24px; background: var(--mist); }
+      .begriff h3 { font-size: 0.98rem; color: var(--navy); margin-bottom: 8px; display: flex; align-items: center; gap: 9px; }
+      .begriff h3::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex: 0 0 auto; }
+      .begriff p { color: var(--grau); font-size: 0.9rem; line-height: 1.6; }
+
+      /* ---------- Branchen / Partner / Zertifikate ---------- */
+      .branchen { display: flex; flex-wrap: wrap; gap: 12px; }
+      .branche {
+        background: var(--mist); border: 1px solid var(--linie); color: var(--navy);
+        font-size: 0.9rem; font-weight: 700; padding: 10px 20px; border-radius: 999px;
+      }
+      .partner-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; margin-bottom: 44px; }
+      .partner-badge {
+        border: 1px solid var(--linie); border-radius: 14px; background: var(--mist);
+        min-height: 96px; display: grid; place-items: center; text-align: center; padding: 16px;
+        color: var(--navy); font-weight: 700; font-size: 0.9rem;
+      }
+      .partner-badge small { display: block; color: var(--grau); font-weight: 600; font-size: 0.72rem; margin-top: 5px; }
+      .zertifikat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+      .zertifikat { display: flex; gap: 14px; align-items: center; border: 1px solid var(--linie); border-radius: 14px; padding: 18px 20px; background: #fff; }
+      .zertifikat .siegel {
+        width: 46px; height: 46px; border-radius: 50%; flex: 0 0 auto;
+        border: 2px solid var(--gold); background: var(--gold-soft); display: grid; place-items: center; color: #8a6d14;
+      }
+      .zertifikat strong { display: block; font-size: 0.96rem; }
+      .zertifikat span { color: var(--grau); font-size: 0.83rem; }
+
+      /* ---------- Ablauf ---------- */
+      .ablauf { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
+      .schritt {
+        background: linear-gradient(180deg, var(--mist), #fff);
+        border: 1px solid var(--linie); border-radius: 16px; padding: 30px 26px; position: relative;
+      }
+      .schritt-nr {
+        width: 48px; height: 48px; border-radius: 50%; margin-bottom: 18px;
+        background: var(--navy); color: var(--gold-2); font-weight: 800; font-size: 1.15rem;
+        display: grid; place-items: center; border: 2px solid var(--gold);
+      }
+      .schritt h3 { font-size: 1.08rem; margin-bottom: 10px; }
+      .schritt p { color: var(--grau); font-size: 0.94rem; line-height: 1.65; }
+
+      /* ---------- Bewertungen ---------- */
+      .bewertungen-wrap { display: grid; grid-template-columns: 0.85fr 1.5fr; gap: 24px; align-items: start; }
+      .bewertung-summ {
+        background: linear-gradient(160deg, var(--navy), var(--navy-3));
+        color: #fff; border-radius: 16px; padding: 34px 28px; text-align: center;
+      }
+      .bewertung-summ .note { font-size: 2.7rem; font-weight: 800; color: var(--gold-2); }
+      .bewertung-summ .sterne { color: var(--gold-2); font-size: 1.15rem; letter-spacing: 4px; margin: 10px 0; }
+      .bewertung-summ p { color: #c5d2e4; font-size: 0.86rem; line-height: 1.55; }
+      .bewertung-grid { display: grid; gap: 18px; }
+      .bewertung { border: 1px solid var(--linie); border-radius: 14px; padding: 22px 24px; background: #fff; }
+      .bewertung .kopf { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+      .bewertung .kopf strong { font-size: 0.96rem; color: var(--navy); }
+      .bewertung .quelle { font-size: 0.76rem; color: var(--grau); }
+      .bewertung .sterne-klein { color: var(--gold); font-size: 0.86rem; letter-spacing: 3px; margin-bottom: 8px; }
+      .bewertung p { color: #38455a; font-size: 0.93rem; line-height: 1.6; }
+
+      /* ---------- Über uns ---------- */
+      .ueber { display: grid; grid-template-columns: 320px 1fr; gap: 48px; align-items: start; }
+      .logo-gross {
+        background: linear-gradient(160deg, var(--navy-2), var(--navy));
+        border-radius: 18px; min-height: 320px; display: grid; place-items: center;
+        position: relative; overflow: hidden;
+      }
+      .logo-gross::after {
+        content: ""; position: absolute; inset: auto -30px -40px auto; width: 130px; height: 130px;
+        border-radius: 50%; background: rgba(201, 162, 39, 0.25); filter: blur(6px);
+      }
+      .ueber h3 { font-size: 1.32rem; margin-bottom: 14px; }
+      .ueber p { color: var(--grau); line-height: 1.7; margin-bottom: 14px; font-size: 0.98rem; }
+      .kz-liste { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 22px; margin-top: 22px; }
+      .kz { display: flex; gap: 11px; align-items: flex-start; color: #38455a; font-size: 0.92rem; font-weight: 600; }
+      .kz .haken2 { width: 20px; height: 20px; border-radius: 50%; background: var(--gold-soft); border: 1.5px solid var(--gold); display: grid; place-items: center; flex: 0 0 auto; margin-top: 1px; }
+      .kz .haken2 svg { width: 10px; height: 10px; stroke: #8a6d14; }
+
+      /* ---------- CTA-Band ---------- */
+      .band { max-width: 1160px; margin: 84px auto 0; padding: 0 24px; }
+      .band-box {
+        background:
+          radial-gradient(700px 300px at 90% -20%, rgba(201, 162, 39, 0.25), transparent 60%),
+          linear-gradient(135deg, var(--navy), var(--navy-3));
+        border-radius: 22px; color: #fff; padding: 54px 48px;
+        display: flex; justify-content: space-between; align-items: center; gap: 30px; flex-wrap: wrap;
+      }
+      .band-box h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 10px; letter-spacing: -0.01em; }
+      .band-box p { color: #c5d2e4; max-width: 540px; line-height: 1.65; }
+
+      /* ---------- Formulare ---------- */
+      .anfrage-box {
+        display: grid; grid-template-columns: 0.9fr 1.25fr; gap: 40px;
+        background: var(--mist); border: 1px solid var(--linie); border-radius: 20px; padding: 44px;
+      }
+      .anfrage-info h3 { font-size: 1.28rem; margin-bottom: 14px; color: var(--navy); }
+      .anfrage-info p { color: var(--grau); line-height: 1.7; margin-bottom: 24px; font-size: 0.96rem; }
+      .kontaktzeile { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 18px; }
+      .kontaktzeile .ico {
+        width: 42px; height: 42px; border-radius: 12px; flex: 0 0 auto;
+        background: var(--navy); color: var(--gold-2); display: grid; place-items: center;
+      }
+      .kontaktzeile strong { display: block; font-size: 0.94rem; color: var(--navy); }
+      .kontaktzeile span, .kontaktzeile a { color: var(--grau); font-size: 0.9rem; text-decoration: none; }
+      .kontaktzeile a:hover { color: var(--navy); text-decoration: underline; }
+      form { display: grid; gap: 16px; }
+      .form-reihe { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      label { font-size: 0.85rem; font-weight: 700; color: #38455a; display: block; margin-bottom: 6px; }
+      input, select, textarea {
+        width: 100%; font-family: inherit; font-size: 0.95rem; color: var(--tinte);
+        padding: 12px 14px; border: 1.5px solid var(--linie); border-radius: 10px;
+        background: #fff; outline: none; transition: border-color 0.15s ease;
+      }
+      input:focus, select:focus, textarea:focus { border-color: var(--gold); }
+      textarea { resize: vertical; min-height: 110px; }
+      .pflicht { font-size: 0.8rem; color: var(--grau); }
+      .fehler { color: #b3261e; font-size: 0.8rem; display: none; }
+      .erfolg {
+        display: none; background: var(--gold-soft); border: 1.5px solid var(--gold);
+        color: #6b5510; border-radius: 10px; padding: 16px 18px; font-size: 0.92rem; line-height: 1.6;
+      }
+      .kopierbereich { display: none; margin-top: 6px; }
+      .kopierbereich textarea { font-size: 0.84rem; background: #fff; }
+      .test-hinweis {
+        background: #fdf6e3; border: 1px dashed var(--gold); border-radius: 10px;
+        padding: 10px 14px; font-size: 0.8rem; color: #6b5510; line-height: 1.5;
+      }
+
+      /* ---------- Fußzeile ---------- */
+      footer { margin-top: 96px; background: var(--navy); color: #b9c6da; padding: 60px 24px 30px; }
+      .fuss { max-width: 1160px; margin: 0 auto; }
+      .fuss-oben { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 36px; }
+      .fuss h4 { color: #fff; margin-bottom: 14px; font-size: 0.95rem; }
+      .fuss ul { list-style: none; }
+      .fuss li { margin-bottom: 10px; }
+      .fuss a { color: #9db0ca; text-decoration: none; font-size: 0.9rem; }
+      .fuss a:hover { color: var(--gold-2); }
+      .fuss-marke { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; color: #fff; font-weight: 800; }
+      .fuss-marke-text span { color: var(--gold-2); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; }
+      .fuss p { font-size: 0.9rem; line-height: 1.7; max-width: 340px; }
+      .fuss-slogan { margin-top: 14px; color: var(--gold-2); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; }
+      .fuss-unten {
+        border-top: 1px solid rgba(255, 255, 255, 0.12); margin-top: 44px; padding-top: 22px;
+        display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 0.84rem; color: #7d90ab;
+      }
+
+      /* ---------- Admin (Demo) ---------- */
+      .admin-overlay {
+        position: fixed; inset: 0; background: rgba(13, 36, 64, 0.68); z-index: 90;
+        display: none; align-items: flex-start; justify-content: center; padding: 48px 16px; overflow: auto;
+      }
+      .admin-overlay.offen { display: flex; }
+      .admin-panel {
+        background: #fff; border-radius: 18px; max-width: 640px; width: 100%;
+        padding: 34px 32px; position: relative; border-top: 4px solid var(--gold);
+      }
+      .admin-panel h3 { color: var(--navy); margin-bottom: 6px; font-size: 1.3rem; }
+      .admin-panel .sub { color: var(--grau); font-size: 0.88rem; margin-bottom: 22px; line-height: 1.55; }
+      .admin-feld { margin-bottom: 14px; }
+      .admin-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+      .admin-liste {
+        background: var(--mist); border: 1px solid var(--linie); border-radius: 10px;
+        padding: 12px 16px; font-size: 0.86rem; color: var(--grau); margin-top: 22px;
+      }
+      .admin-x { position: absolute; top: 14px; right: 18px; background: none; border: none; color: var(--grau); font-size: 1.4rem; cursor: pointer; }
+
+      /* ---------- Leistungswelten & Aktuelles ---------- */
+      .welten-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+      .welt { border: 1px solid var(--linie); border-radius: 18px; padding: 32px 28px; background: linear-gradient(180deg, var(--mist), #fff); transition: transform 0.18s ease, box-shadow 0.18s ease; }
+      .welt:hover { transform: translateY(-6px); box-shadow: 0 16px 34px rgba(13, 36, 64, 0.12); }
+      .welt h3 { font-size: 1.18rem; margin-bottom: 10px; color: var(--navy); }
+      .welt > p { color: var(--grau); font-size: 0.94rem; line-height: 1.6; margin-bottom: 14px; }
+      .welt ul { list-style: none; margin-bottom: 18px; }
+      .welt li { padding: 7px 0; border-bottom: 1px solid var(--linie); color: #38455a; font-size: 0.9rem; font-weight: 600; }
+      .welt li:last-child { border-bottom: none; }
+      .welt .mehr { color: var(--navy); font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 7px; }
+      .welt .mehr::after { content: "→"; color: var(--gold); }
+      .welt .mehr:hover { text-decoration: underline; }
+      .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; margin-bottom: 14px; }
+      .news-karte { border: 1px solid var(--linie); border-radius: 14px; padding: 22px 24px; background: #fff; }
+      .news-karte small { color: #8a6d14; font-weight: 800; font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; }
+      .news-karte h3 { font-size: 1.02rem; color: var(--navy); margin: 8px 0; }
+      .news-karte p { color: var(--grau); font-size: 0.9rem; line-height: 1.6; }
+      .ki-hinweis { margin-top: 34px; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 12px; padding: 14px 18px; font-size: 0.82rem; line-height: 1.65; color: #9db0ca; }
+      .ki-hinweis strong { color: #d9c88a; }
+
+      /* ---------- Mitarbeiter-Bereich ---------- */
+      .ma-box { display: grid; grid-template-columns: 0.9fr 1.2fr; gap: 26px; align-items: stretch; }
+      .ma-login { background: linear-gradient(160deg, var(--navy), var(--navy-3)); color: #fff; border-radius: 18px; padding: 34px 30px; }
+      .ma-login h3 { color: var(--gold-2); font-size: 1.2rem; margin-bottom: 12px; }
+      .ma-login p { color: #c5d2e4; font-size: 0.9rem; line-height: 1.65; margin-bottom: 20px; }
+      .ma-login label { color: #dbe4f0; }
+      .ma-login input { background: rgba(255, 255, 255, 0.94); }
+      .ma-login .fehler { color: #ffb4ab; }
+      .ma-info { border: 1px solid var(--linie); border-radius: 18px; padding: 30px 28px; background: var(--mist); }
+      .ma-info h3 { color: var(--navy); font-size: 1.1rem; margin-bottom: 12px; }
+      .ma-info ul { list-style: none; }
+      .ma-info li { display: flex; gap: 11px; align-items: flex-start; color: #38455a; font-size: 0.93rem; line-height: 1.55; padding: 9px 0; border-bottom: 1px solid var(--linie); }
+      .ma-info li:last-child { border-bottom: none; }
+      .ma-info li::before { content: "•"; color: var(--gold); font-weight: 800; flex: 0 0 auto; }
+      .ma-portal { display: none; border: 1px solid var(--linie); border-radius: 18px; background: #fff; padding: 30px 28px; grid-column: 1 / -1; }
+      .ma-portal.sichtbar { display: block; }
+      .ma-kopf { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
+      .ma-kopf strong { color: var(--navy); font-size: 1.02rem; }
+      .demo-badge { background: var(--gold-soft); border: 1px solid var(--gold); color: #6b5510; font-size: 0.72rem; font-weight: 800; padding: 4px 10px; border-radius: 999px; letter-spacing: 0.06em; margin-left: 10px; white-space: nowrap; }
+      .ma-tabs { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 22px; border-bottom: 2px solid var(--linie); }
+      .ma-tab-btn { border: none; background: none; cursor: pointer; font-family: inherit; font-weight: 700; color: var(--grau); font-size: 0.92rem; padding: 10px 16px; border-bottom: 3px solid transparent; margin-bottom: -2px; }
+      .ma-tab-btn.aktiv { color: var(--navy); border-bottom-color: var(--gold); }
+      .ma-panel { display: none; }
+      .ma-panel.aktiv { display: block; }
+      .dp-wrap { overflow-x: auto; }
+      .dienstplan-tabelle { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 640px; }
+      .dienstplan-tabelle th { background: var(--navy); color: #fff; text-align: left; padding: 11px 14px; font-size: 0.82rem; letter-spacing: 0.04em; }
+      .dienstplan-tabelle td { padding: 11px 14px; border-bottom: 1px solid var(--linie); color: #38455a; }
+      .dienstplan-tabelle tr:nth-child(even) td { background: var(--mist); }
+      .dienstplan-tabelle tr.frei td { color: var(--grau); font-style: italic; }
+      .status-pill { display: inline-block; border-radius: 999px; font-size: 0.72rem; font-weight: 800; padding: 4px 11px; letter-spacing: 0.04em; }
+      .status-ok { background: #e4f1e4; color: #1f5c2d; border: 1px solid #9ec9a1; }
+      .status-offen { background: var(--gold-soft); color: #6b5510; border: 1px solid var(--gold); }
+      .schulung { border: 1px solid var(--linie); border-radius: 12px; padding: 16px 18px; display: flex; justify-content: space-between; gap: 14px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; background: #fff; }
+      .schulung strong { color: var(--navy); font-size: 0.95rem; display: block; }
+      .schulung span { color: var(--grau); font-size: 0.84rem; }
+      .ma-news-item { border-left: 3px solid var(--gold); background: var(--mist); border-radius: 0 12px 12px 0; padding: 16px 18px; margin-bottom: 12px; }
+      .ma-news-item strong { color: var(--navy); font-size: 0.95rem; display: block; margin-bottom: 4px; }
+      .ma-news-item span { color: var(--grau); font-size: 0.78rem; }
+      .ma-news-item p { color: #38455a; font-size: 0.9rem; line-height: 1.6; margin-top: 6px; }
+      .dok-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin-bottom: 14px; }
+      .dok-btn { border: 1.5px solid var(--linie); background: var(--mist); color: var(--navy); border-radius: 12px; padding: 16px; font-family: inherit; font-size: 0.9rem; font-weight: 700; cursor: pointer; text-align: left; transition: border-color 0.15s ease, background 0.15s ease; }
+      .dok-btn:hover { border-color: var(--gold); background: var(--gold-soft); }
+      .dok-hinweis { font-size: 0.85rem; color: #6b5510; background: var(--gold-soft); border: 1px dashed var(--gold); border-radius: 10px; padding: 12px 16px; display: none; margin-bottom: 22px; line-height: 1.55; }
+      @media (max-width: 940px) { .ma-box { grid-template-columns: 1fr; } }
+
+      /* ---------- Cookie-Hinweis & Rechtstexte ---------- */
+      .cookie-bar {
+        position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 80;
+        background: #fff; border: 1px solid var(--linie); border-radius: 14px;
+        box-shadow: 0 14px 38px rgba(13, 36, 64, 0.22);
+        padding: 18px 22px; display: none; gap: 18px; align-items: center; justify-content: space-between; flex-wrap: wrap;
+      }
+      .cookie-bar.sichtbar { display: flex; }
+      .cookie-bar p { font-size: 0.86rem; color: #38455a; line-height: 1.55; max-width: 720px; }
+      .cookie-bar .cookie-aktion { display: flex; gap: 10px; flex-wrap: wrap; }
+      .legal-overlay {
+        position: fixed; inset: 0; background: rgba(13, 36, 64, 0.68); z-index: 95;
+        display: none; align-items: flex-start; justify-content: center; padding: 48px 16px; overflow: auto;
+      }
+      .legal-overlay.offen { display: flex; }
+      .legal-panel {
+        background: #fff; border-radius: 18px; max-width: 780px; width: 100%;
+        padding: 38px 34px; position: relative; border-top: 4px solid var(--gold);
+        max-height: 82vh; overflow-y: auto;
+      }
+      .legal-panel h3 { color: var(--navy); margin-bottom: 16px; font-size: 1.35rem; }
+      .legal-panel h4 { color: var(--navy); margin: 20px 0 8px; font-size: 1rem; }
+      .legal-panel p, .legal-panel li { color: #38455a; font-size: 0.92rem; line-height: 1.65; margin-bottom: 8px; }
+      .legal-panel ul { margin: 0 0 8px 20px; }
+      .legal-panel .rechtshinweis {
+        background: #fdf6e3; border: 1px dashed var(--gold); border-radius: 10px;
+        padding: 12px 16px; font-size: 0.83rem; color: #6b5510; line-height: 1.55; margin-bottom: 18px;
+      }
+
+      /* ---------- Animation ---------- */
+      .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+      .reveal.sichtbar { opacity: 1; transform: none; }
+
+      /* ---------- Responsive ---------- */
+      @media (max-width: 940px) {
+        .hero-inner { grid-template-columns: 1fr; padding-top: 60px; }
+        .ueber { grid-template-columns: 1fr; }
+        .anfrage-box { grid-template-columns: 1fr; padding: 28px; }
+        .fuss-oben { grid-template-columns: 1fr 1fr; }
+        .nav-links, .nav .btn-gold { display: none; }
+        .burger { display: block; }
+        .nav-links.offen {
+          display: flex; position: absolute; top: 100%; left: 0; right: 0;
+          background: #fff; flex-direction: column; align-items: flex-start; padding: 20px 24px; gap: 16px;
+          border-bottom: 1px solid var(--linie);
+        }
+        .nav-links.offen a.aktiv { border-bottom-color: transparent; }
+        .bewertungen-wrap { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 620px) {
+        .form-reihe, .kz-liste { grid-template-columns: 1fr; }
+        .topbar { gap: 14px; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Kontaktleiste -->
+    <div class="topbar">
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.9 2.2z"/></svg>
+        <a href="tel:01779700189">0177 / 970 01 89</a>
+      </span>
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Sieringstr. 44 · 65929 Frankfurt am Main
+      </span>
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        <a href="#kontakt">Kontakt &amp; Bewerbung über Formular</a>
+      </span>
+    </div>
+
+    <div class="promo" id="promoBanner"></div>
+
+    <!-- Kopfzeile -->
+    <header>
+      <nav class="nav">
+        <a class="marke" href="#top">
+          <svg width="62" height="62" viewBox="0 0 100 100" fill="none" aria-label="Logo M&I Safety - Solution GmbH">
+            <circle cx="50" cy="50" r="47" fill="#0d2440"/>
+            <circle cx="50" cy="50" r="47" stroke="#c9a227" stroke-width="3" fill="none"/>
+            <circle cx="50" cy="50" r="41" stroke="#c9a227" stroke-width="1" fill="none" opacity="0.45"/>
+            <text x="50" y="46" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="800" fill="#e6c55c">M&amp;I</text>
+            <path d="M 30 50 A 30 30 0 0 0 70 50" stroke="#c9a227" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+            <text x="50" y="72" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="7" font-weight="700" letter-spacing="0.5" fill="#e6c55c">SAFETY-SOLUTION</text>
+            <text x="50" y="84" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.5" font-weight="700" letter-spacing="2.4" fill="#c9a227">GMBH</text>
+          </svg>
+          <div class="marke-text">
+            <strong>M&amp;I Safety - Solution GmbH</strong>
+            <span>Safety • Security • Solutions</span>
+          </div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="#aktuelles">Aktuelles</a></li>
+          <li><a href="#branchen">Branchen</a></li>
+          <li><a href="#ueber-uns">Über uns</a></li>
+          <li><a href="#bewerbung">Karriere</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="#mitarbeiter">Mitarbeiter</a></li>
+        </ul>
+        <a href="#kontakt" class="btn btn-gold">Anfrage senden</a>
+        <button class="burger" id="burger" aria-label="Menü öffnen">☰</button>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-inner">
+          <div>
+            <div class="hero-slogan">Sicherheit · Zuverlässigkeit · Professionelle Lösungen</div>
+            <h1>Ihr Full-Service-Dienstleister für <em>Sicherheit und Service</em></h1>
+            <p>
+              Ob Objektschutz, Baustellenbewachung, Betriebssanitäter, Reinigungsdienste,
+              Servicedienstleistungen oder Brandwache: Wir liefern passende Lösungen für
+              Ihren Bedarf – zuverlässig, dokumentiert und alles aus einer Hand.
+            </p>
+            <div class="hero-cta">
+              <a href="#kontakt" class="btn btn-gold">Kostenloses Angebot anfordern</a>
+              <a href="#leistungen" class="btn btn-ghost-gold">Leistungen ansehen</a>
+            </div>
+          </div>
+          <div>
+            <div class="hero-karte">
+              <h3>Unser Anspruch</h3>
+              <ul>
+                <li><span class="haken"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Geprüftes und geschultes Personal</li>
+                <li><span class="haken"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Dokumentierte Einsätze und Berichte</li>
+                <li><span class="haken"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Ein fester Ansprechpartner pro Objekt</li>
+                <li><span class="haken"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Schnelle Reaktion im Einsatzfall</li>
+              </ul>
+            </div>
+          </div>
+          <div class="hero-fakten">
+            <div class="hero-fakt"><strong>24 / 7</strong><span>Erreichbarkeit</span></div>
+            <div class="hero-fakt"><strong>6</strong><span>Leistungsbereiche</span></div>
+            <div class="hero-fakt"><strong>100 %</strong><span>dokumentierte Einsätze</span></div>
+            <div class="hero-fakt"><strong>1</strong><span>fester Ansprechpartner</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leistungswelten -->
+      <section class="abschnitt reveal" id="welten">
+        <div class="abschnitt-kopf">
+          <div class="ueberlinie">Leistungswelten</div>
+          <h2>Drei Welten – ein Ansprechpartner</h2>
+          <p>Vom Schutz Ihres Objekts bis zur laufenden Betreuung: Sie erhalten alle Leistungen von einem Partner, abgestimmt auf Ihren Bedarf.</p>
+        </div>
+        <div class="welten-grid">
+          <article class="welt">
+            <div class="leistung-ico">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Sicherheit</h3>
+            <p>Zuverlässiger Schutz für Gebäude, Gelände und Baustellen – rund um die Uhr und lückenlos dokumentiert.</p>
+            <ul>
+              <li>Objektschutz</li>
+              <li>Baustellenbewachung</li>
+              <li>Brandwache</li>
+              <li>Betriebssanitäter</li>
+            </ul>
+            <a class="mehr" href="#leistungen">Mehr erfahren</a>
+          </article>
+          <article class="welt">
+            <div class="leistung-ico">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M19 15l2 5-4-1"/></svg>
+            </div>
+            <h3>Reinigung &amp; Pflege</h3>
+            <p>Sauberkeit und Hygiene für Büros, Produktionsflächen und Gemeinschaftseigentum – regelmäßig oder nach Bedarf.</p>
+            <ul>
+              <li>Unterhaltsreinigung</li>
+              <li>Sonderreinigung</li>
+              <li>Treppenhäuser und Gemeinschaftsflächen</li>
+            </ul>
+            <a class="mehr" href="#leistungen">Mehr erfahren</a>
+          </article>
+          <article class="welt">
+            <div class="leistung-ico">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4.5 4.5 0 0 0-6.4 6.4L3 18v3h3l5.3-5.3a4.5 4.5 0 0 0 6.4-6.4l-3.2 3.2-2.2-2.2 3.4-3z"/></svg>
+            </div>
+            <h3>Service &amp; Unterstützung</h3>
+            <p>Wiederkehrende Aufgaben auf Ihrem Gelände, die niemanden fest beschäftigen – zuverlässig und auf Wunsch dokumentiert.</p>
+            <ul>
+              <li>Botenfahrten</li>
+              <li>Kleinreparaturen</li>
+              <li>Winterdienst und Objektservices</li>
+            </ul>
+            <a class="mehr" href="#leistungen">Mehr erfahren</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- Leistungen -->
+      <section class="abschnitt reveal" id="leistungen">
+        <div class="abschnitt-kopf">
+          <div class="ueberlinie">Leistungen</div>
+          <h2>Sechs Leistungsbereiche – verständlich erklärt</h2>
+          <p>Jeder Bereich ist unten zusätzlich in einfacher Sprache erklärt, damit Sie sofort wissen, was Sie bei uns bekommen.</p>
+        </div>
+        <div class="leistungen">
+          <article class="leistung">
+            <div class="leistung-ico">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><path d="M9 10h.01M15 10h.01"/></svg>
+            </div>
+            <h3>Objektschutz</h3>
+            <p>Bewachung von Gebäuden, Firmengeländen und Wohnanlagen: Zutrittskontrolle, Empfangs- und Pförtnerdienst, Streifen im Objekt.</p>
+            <div class="erklaerung"><strong>Was heißt das für Sie?</strong> Ein Sicherheitsmitarbeiter ist bei Ihnen vor Ort und entscheidet, wer das Gelände betreten darf, kontrolliert Besucher und meldet Vorfälle sofort.</div>
+          </article>
+          <article class="leistung">
+            <div class="leistung-ico">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20V9l8-6 8 6v11"/><path d="M9 20v-5h6v5"/><path d="M9 12h6"/></svg>
+            </div>
+            <h3>Baustellenbewachung</h3>
+            <p>Sicherung von Baustellen, Maschinen und Materiallagern – tagsüber, nachts und am Wochenende, inklusive Kontrollgängen.</p>
+            <div class="erklaerung"><strong>Was heißt das für Sie?</strong> Baumaschinen und Materialien sind besonders häufig Ziel von Diebstahl und Vandalismus. Unsere Kräfte überwachen die Stelle, sodass Ihre Arbeiten nicht stillstehen.</div>
+          </article>
+          <article class="leistung">
+            <div class="leistung-ico">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/><circle cx="12" cy="12" r="9.5"/></svg>
+            </div>
+            <h3>Betriebssanitäter</h3>
+            <p>Qualifizierte Erste-Hilfe-Kräfte für Betriebe und Veranstaltungen: Betreuung bei Notfällen, Unfällen und bis der Rettungsdienst eintrifft.</p>
+            <div class="erklaerung"><strong>Was heißt das für Sie?</strong> Betriebssanitäter sind speziell geschulte Ersthelfer. Sie leisten professionelle Erste Hilfe, wenn auf Ihrem Gelände oder Ihrer Veranstaltung jemand verletzt wird.</div>
+          </article>
+          <article class="leistung">
+            <div class="leistung-ico">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M19 15l2 5-4-1"/></svg>
+            </div>
+            <h3>Reinigungsdienste</h3>
+            <p>Unterhalts- und Sonderreinigung für Büros, Produktionsflächen, Treppenhäuser und Gemeinschaftseigentum.</p>
+            <div class="erklaerung"><strong>Was heißt das für Sie?</strong> Wir reinigen regelmäßig oder nach Bedarf, sodass Ihre Räume sauber und repräsentativ bleiben – ohne dass Sie sich um Personal kümmern müssen.</div>
+          </article>
+          <article class="leistung">
+            <div class="leistung-ico">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4.5 4.5 0 0 0-6.4 6.4L3 18v3h3l5.3-5.3a4.5 4.5 0 0 0 6.4-6.4l-3.2 3.2-2.2-2.2 3.4-3z"/></svg>
+            </div>
+            <h3>Servicedienstleistungen</h3>
+            <p>Zusätzliche Objektservices nach Vereinbarung: Botenfahrten, Kleinreparaturen, Winterdienst und weitere wiederkehrende Aufgaben.</p>
+            <div class="erklaerung"><strong>Was heißt das für Sie?</strong> Alles, was auf Ihrem Gelände anfällt, aber niemanden fest beschäftigt: Wir übernehmen diese Tätigkeiten zuverlässig und auf Wunsch dokumentiert.</div>
+          </article>
+          <article class="leistung">
+            <div class="leistung-ico">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c3 4 5 6 5 9a5 5 0 0 1-10 0c0-3 2-5 5-9z"/><path d="M12 22v-4"/></svg>
+            </div>
+            <h3>Brandwache</h3>
+            <p>Brandschutz bei Veranstaltungen oder beim Ausfall von Brandmeldeanlagen: Überwachung, Alarmierung und Unterstützung bei der Evakuierung.</p>
+            <div class="erklaerung"><strong>Was heißt das für Sie?</strong> Wenn Ihre Brandmeldeanlage außer Betrieb ist oder eine Veranstaltung besonderen Brandschutz erfordert, stellt die Feuerwehr oft eine Brandwache als Auflage. Wir besetzen diese professionell.</div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Begriffe -->
+      <section class="abschnitt reveal" id="begriffe">
+        <div class="abschnitt-kopf">
+          <div class="ueberlinie">Begriffe erklärt</div>
+          <h2>Fachbegriffe und Normen verständlich gemacht</h2>
+          <p>Sicherheit hat viele Fachausdrücke. Hier finden Sie die wichtigsten Begriffe kurz und klar erklärt.</p>
+        </div>
+        <div class="begriffe">
+          <div class="begriff">
+            <h3>§ 34a GewO</h3>
+            <p>Der Paragraf 34a der Gewerbeordnung regelt das Bewachungsgewerbe in Deutschland. Wer Schutzaufgaben für andere anbietet, muss eine Zuverlässigkeitsprüfung bestehen. Sie erkennen damit seriöse Sicherheitsfirmen.</p>
+          </div>
+          <div class="begriff">
+            <h3>Objektschutz vs. Baustellenbewachung</h3>
+            <p>Objektschutz schützt bestehende Gebäude und Gelände im laufenden Betrieb. Baustellenbewachung sichert dagegen temporäre Baustellen mit Maschinen, Material und offenen Zugängen.</p>
+          </div>
+          <div class="begriff">
+            <h3>Betriebssanitäter</h3>
+            <p>Eine speziell geschulte Person für Notfälle im Betrieb, vergleichbar mit einer „Fortbildung der Ersten Hilfe“. Sie stabilisiert Verletzte, bis der Rettungsdienst übernimmt, und ist bei vielen Firmen gesetzlich vorgeschrieben.</p>
+          </div>
+          <div class="begriff">
+            <h3>Brandwache</h3>
+            <p>Eine Brandschutz-Einweisung der Feuerwehr: Geschulte Kräfte überwachen ein Gebäude oder Ereignis, erkennen Brände früh und leiten erste Maßnahmen ein. Wird häufig bei Anlagen-Ausfall oder Feiern angeordnet.</p>
+          </div>
+          <div class="begriff">
+            <h3>DIN EN ISO 9001</h3>
+            <p>Eine international anerkannte Norm für Qualitätsmanagement. Firmen mit dieser Norm dokumentieren und verbessern ihre Arbeitsabläufe regelmäßig.</p>
+          </div>
+          <div class="begriff">
+            <h3>Einsatzdokumentation</h3>
+            <p>Jeder Kontrollgang und Vorfall wird schriftlich oder digital festgehalten – mit Uhrzeit, Ort und Beobachtung. Sie erhalten so jederzeit nachvollziehbar, was auf Ihrem Objekt geschehen ist.</p>
+          </div>
+          <div class="begriff">
+            <h3>DIN 77200</h3>
+            <p>Die Norm für Sicherungsdienstleistungen beschreibt verbindliche Anforderungen an personelle Sicherheitsdienste: dokumentierte Abläufe, Qualifikation des Personals und klare Verantwortlichkeiten. Seriöse Anbieter lassen sich nach dieser Norm zertifizieren.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Branchen -->
+      <section class="abschnitt reveal" id="branchen">
+        <div class="abschnitt-kopf">
+          <div class="ueberlinie">Branchen</div>
+          <h2>Für wen wir arbeiten</h2>
+          <p>Vom Gewerbeobjekt bis zur Großbaustelle: Wir kennen die Anforderungen Ihrer Branche.</p>
+        </div>
+        <div class="branchen">
+          <span class="branche">Industrie &amp; Produktion</span>
+          <span class="branche">Bauunternehmen</span>
+          <span class="branche">Handel &amp; Logistik</span>
+          <span class="branche">Büro- &amp; Verwaltungsgebäude</span>
+          <span class="branche">Wohnanlagen</span>
+          <span class="branche">Events &amp; Veranstaltungen</span>
+          <span class="branche">Öffentliche Einrichtungen</span>
+        </div>
+      </section>
+
+      <!-- Ablauf -->
+      <section class="abschnitt reveal" id="ablauf">
+        <div class="abschnitt-kopf">
+          <div class="ueberlinie">Zusammenarbeit</div>
+          <h2>In drei Schritten zum Schutzkonzept</h2>
+          <p>Transparent, dokumentiert und ohne versteckte Kosten.</p>
+        </div>
+        <div class="ablauf">
+          <div class="schritt">
+            <div class="schritt-nr">1</div>
+            <h3>Beratung vor Ort</h3>
+            <p>Wir besichtigen Ihr Objekt, erfassen Risiken und Sicherheitslücken und besprechen Ihre Anforderungen.</p>
+          </div>
+          <div class="schritt">
+            <div class="schritt-nr">2</div>
+            <h3>Angebot &amp; Konzept</h3>
+            <p>Sie erhalten ein schriftliches Angebot mit klarem Leistungsumfang, Einsatzzeiten und Festpreisen.</p>
+          </div>
+          <div class="schritt">
+            <div class="schritt-nr">3</div>
+            <h3>Umsetzung &amp; Kontrolle</h3>
+            <p>Einsatz geprüften Personals mit Einsatzberichten und regelmäßigen Qualitätskontrollen.</p>
+          </div>
+          <div class="schritt">
+            <div class="schritt-nr">4</div>
+            <h3>Berichtswesen &amp; Anpassung</h3>
+            <p>Sie erhalten Einsatzberichte und Auswertungen. Verändert sich Ihr Objekt, passen wir Posten und Kontrollgänge an – die Qualität wird regelmäßig überprüft.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Aktuelles -->
+      <section class="abschnitt reveal" id="aktuelles">
+        <div class="abschnitt-kopf">
+          <div class="ueberlinie">Aktuelles</div>
+          <h2>News und Mitteilungen</h2>
+          <p>Aktuelle Entwicklungen, Angebote und Neuigkeiten aus unserem Unternehmen – kompakt und auf den Punkt.</p>
+        </div>
+        <div class="news-grid" id="newsGrid"></div>
+        <div class="test-hinweis">Beispielbeiträge. Im Live-Betrieb veröffentlicht die Verwaltung aktuelle Meldungen über den Admin-Bereich.</div>
+      </section>
+
+      <!-- Bewertungen -->
+      <section class="abschnitt reveal" id="bewertungen">
+        <div class="abschnitt-kopf">
+          <div class="ueberlinie">Bewertungen</div>
+          <h2>Vertrauen durch Erfahrung</h2>
+          <p>Im Live-Betrieb kann dieser Bereich automatisch mit echten Google-Bewertungen verknüpft werden. Die folgenden Einträge sind Beispiele.</p>
+        </div>
+        <div class="bewertungen-wrap">
+          <div class="bewertung-summ">
+            <div class="note">4,8 / 5</div>
+            <div class="sterne">★★★★★</div>
+            <p>Durchschnitt aus Kundenzuschriften und Google-Bewertungen (Beispielwerte)</p>
+          </div>
+          <div class="bewertung-grid">
+            <div class="bewertung">
+              <div class="kopf"><strong>Logistikzentrum, Bereichsleitung</strong><span class="quelle">Google-Bewertung · Beispiel</span></div>
+              <div class="sterne-klein">★★★★★</div>
+              <p>„Der Objektschutz läuft seit zwei Jahren absolut zuverlässig. Jede Schicht wird dokumentiert, bei Zwischenfällen erhalten wir binnen Minuten eine Meldung.“</p>
+            </div>
+            <div class="bewertung">
+              <div class="kopf"><strong>Bauunternehmen</strong><span class="quelle">Google-Bewertung · Beispiel</span></div>
+              <div class="sterne-klein">★★★★★</div>
+              <p>„Die Baustellenbewachung hat uns schon zwei Mal vor größerem Materialdiebstahl bewahrt. Saubere Übergaben, freundliche Kräfte.“</p>
+            </div>
+            <div class="bewertung">
+              <div class="kopf"><strong>Mittelständischer Hersteller</strong><span class="quelle">Kundenzuschrift · Beispiel</span></div>
+              <div class="sterne-klein">★★★★☆</div>
+              <p>„Die Brandwache während unserer Anlagenmodernisierung war bestens besetzt und vorbereitet. Professioneller Auftritt des gesamten Teams.“</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Partner & Zertifikate -->
+      <section class="abschnitt reveal" id="partner">
+        <div class="abschnitt-kopf">
+          <div class="ueberlinie">Partner &amp; Zertifikate</div>
+          <h2>Werbepartner und Qualitätsnachweise</h2>
+          <p>Dieser Bereich ist über den Admin-Bereich erweiterbar: Partner, ISO-Normen und Zertifikate lassen sich dort einpflegen. Die folgenden Einträge sind Beispiele.</p>
+        </div>
+        <div class="partner-grid" id="partnerGrid">
+          <div class="partner-badge">Ausbildungspartner Nord<small>Werbepartner · Beispiel</small></div>
+          <div class="partner-badge">Reinigungs-Allianz<small>Werbepartner · Beispiel</small></div>
+          <div class="partner-badge">TechnikService 24<small>Werbepartner · Beispiel</small></div>
+          <div class="partner-badge">SicherheitsShop Süd<small>Werbepartner · Beispiel</small></div>
+        </div>
+        <div class="zertifikat-grid" id="zertGrid">
+          <div class="zertifikat">
+            <span class="siegel"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></span>
+            <div><strong>DIN EN ISO 9001</strong><span>Qualitätsmanagement · Beispiel</span></div>
+          </div>
+          <div class="zertifikat">
+            <span class="siegel"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+            <div><strong>§ 34a GewO</strong><span>Zuverlässigkeitsprüfung Bewachungsgewerbe · Beispiel</span></div>
+          </div>
+          <div class="zertifikat">
+            <span class="siegel"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></span>
+            <div><strong>DIN 77200</strong><span>Anforderungen an Sicherungsdienstleistungen · Branchenstandard, Zertifizierung angestrebt (Beispiel)</span></div>
+          </div>
+          <div class="zertifikat">
+            <span class="siegel"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg></span>
+            <div><strong>Regelmäßige Schulungen</strong><span>Interner Qualitäts- und Sicherheitsnachweis</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Über uns -->
+      <section class="abschnitt reveal" id="ueber-uns">
+        <div class="abschnitt-kopf">
+          <div class="ueberlinie">Über uns</div>
+          <h2>Persönlich, verbindlich, professionell</h2>
+        </div>
+        <div class="ueber">
+          <div class="logo-gross">
+            <svg width="150" height="150" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+              <circle cx="50" cy="50" r="47" fill="#14345c"/>
+              <circle cx="50" cy="50" r="47" stroke="#c9a227" stroke-width="3" fill="none"/>
+              <circle cx="50" cy="50" r="41" stroke="#c9a227" stroke-width="1" fill="none" opacity="0.45"/>
+              <text x="50" y="46" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="800" fill="#e6c55c">M&amp;I</text>
+              <path d="M 30 50 A 30 30 0 0 0 70 50" stroke="#c9a227" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+              <text x="50" y="72" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="7" font-weight="700" letter-spacing="0.5" fill="#e6c55c">SAFETY-SOLUTION</text>
+              <text x="50" y="84" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.5" font-weight="700" letter-spacing="2.4" fill="#c9a227">GMBH</text>
+            </svg>
+          </div>
+          <div>
+            <h3>M&amp;I Safety - Solution GmbH</h3>
+            <p>
+              Die M&amp;I Safety - Solution GmbH aus Frankfurt am Main steht für sicherheitsnahe
+              Dienstleistungen mit klaren Zusagen. Unser Leitbild lautet: Sicherheit.
+              Zuverlässigkeit. Professionelle Lösungen.
+            </p>
+            <p>
+              Geschäftsführer Herr M. Eroglu und sein Team betreuen jedes Objekt persönlich –
+              vom ersten Beratungsgespräch bis zum laufenden Einsatzbetrieb. Kurze Wege,
+              feste Ansprechpartner und saubere Dokumentation sind für uns selbstverständlich.
+            </p>
+            <div class="kz-liste">
+              <div class="kz"><span class="haken2"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Geschultes Sicherheitspersonal</div>
+              <div class="kz"><span class="haken2"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> 24 / 7 Erreichbarkeit</div>
+              <div class="kz"><span class="haken2"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Lückenlose Einsatzdokumentation</div>
+              <div class="kz"><span class="haken2"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Festpreisangebote ohne Überraschungen</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA-Band -->
+      <section class="band">
+        <div class="band-box reveal">
+          <div>
+            <h2>Lassen Sie uns über Ihr Objekt sprechen</h2>
+            <p>Wir erstellen Ihnen ein unverbindliches Angebot mit klarem Leistungsumfang und transparenten Preisen.</p>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="#kontakt" class="btn btn-gold">Anfrage senden</a>
+            <a href="tel:01779700189" class="btn btn-ghost-gold">Anrufen</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bewerbung -->
+      <section class="abschnitt reveal" id="bewerbung">
+        <div class="abschnitt-kopf">
+          <div class="ueberlinie">Karriere</div>
+          <h2>Karriere: Bewerben Sie sich per Formular</h2>
+          <p>Wählen Sie Ihren Wunschbereich und senden Sie uns Ihre Bewerbung. Unsere E-Mail-Adresse bleibt dabei verborgen – Ihre Nachricht geht direkt an unser Postfach.</p>
+        </div>
+        <div class="anfrage-box">
+          <div class="anfrage-info">
+            <h3>Was Sie mitbringen sollten</h3>
+            <p>Zuverlässigkeit, Verschwiegenheit und Einsatzbereitschaft stehen bei uns an erster Stelle. Für Schutzaufgaben ist die Zuverlässigkeitsprüfung nach Paragraf 34a GewO Voraussetzung.</p>
+            <div class="kz-liste">
+              <div class="kz"><span class="haken2"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Nachweis nach § 34a GewO (für Schutzaufgaben)</div>
+              <div class="kz"><span class="haken2"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Führerschein Klasse B</div>
+              <div class="kz"><span class="haken2"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Flexibilität im Schichtdienst</div>
+              <div class="kz"><span class="haken2"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Deutsch in Wort und Schrift</div>
+            </div>
+            <p style="margin-top:20px; font-size:0.85rem;">Firmen und Auftraggeber nutzen bitte das <a href="#kontakt" style="color:var(--navy);font-weight:700;">Kontaktformular</a>.</p>
+          </div>
+          <form id="bewerbungForm" novalidate>
+            <div class="form-reihe">
+              <div>
+                <label for="b-sparte">Wunschbereich *</label>
+                <select id="b-sparte">
+                  <option value="">Bitte auswählen</option>
+                  <option>Objektschutz</option>
+                  <option>Baustellenbewachung</option>
+                  <option>Betriebssanitäter</option>
+                  <option>Reinigungsdienste</option>
+                  <option>Servicedienstleistungen</option>
+                  <option>Brandwache</option>
+                  <option>Verwaltung / Service</option>
+                </select>
+                <div class="fehler" id="eb-sparte">Bitte wählen Sie einen Bereich aus.</div>
+              </div>
+              <div>
+                <label for="b-name">Name *</label>
+                <input id="b-name" type="text" placeholder="Vor- und Nachname" />
+                <div class="fehler" id="eb-name">Bitte geben Sie Ihren Namen an.</div>
+              </div>
+            </div>
+            <div class="form-reihe">
+              <div>
+                <label for="b-mail">E-Mail-Adresse *</label>
+                <input id="b-mail" type="email" placeholder="name@beispiel.de" />
+                <div class="fehler" id="eb-mail">Bitte geben Sie eine gültige E-Mail-Adresse an.</div>
+              </div>
+              <div>
+                <label for="b-tel">Telefon (optional)</label>
+                <input id="b-tel" type="tel" placeholder="Für Rückfragen" />
+              </div>
+            </div>
+            <div>
+              <label for="b-verfuegbarkeit">Verfügbarkeit (optional)</label>
+              <input id="b-verfuegbarkeit" type="text" placeholder="z. B. sofort, Vollzeit, Schichtdienst" />
+            </div>
+            <div>
+              <label for="b-nachricht">Nachricht *</label>
+              <textarea id="b-nachricht" placeholder="Motivation, Berufserfahrung, verfügbare Nachweise …"></textarea>
+              <div class="fehler" id="eb-nachricht">Bitte schreiben Sie uns einige Sätze zu Ihrer Person.</div>
+            </div>
+            <div class="test-hinweis">Ihre Bewerbung wird an m.eroglu@m-safety-solution.de gesendet.</div>
+            <button type="submit" class="btn btn-gold">Bewerbung absenden</button>
+            <p class="pflicht">* Pflichtfelder. Nach dem Absenden öffnet sich Ihr E-Mail-Programm mit der fertigen Nachricht.</p>
+            <div class="erfolg" id="b-erfolg"></div>
+            <div class="kopierbereich" id="b-kopie">
+              <label for="b-kopietext">Falls sich kein E-Mail-Programm öffnet: Nachricht markieren, kopieren und manuell senden.</label>
+              <textarea id="b-kopietext" rows="7" readonly></textarea>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Mitarbeiter-Bereich -->
+      <section class="abschnitt reveal" id="mitarbeiter">
+        <div class="abschnitt-kopf">
+          <div class="ueberlinie">Mitarbeiter-Bereich</div>
+          <h2>Dienstpläne, Schulungen und Team-Informationen</h2>
+          <p>Angemeldete Mitarbeitende sehen hier ihren aktuellen Dienstplan, anstehende Schulungen, Mitteilungen der Einsatzleitung und wichtige Dokumente.</p>
+        </div>
+        <div class="ma-box">
+          <div class="ma-login" id="maLoginKarte">
+            <h3>Anmeldung für Mitarbeitende</h3>
+            <p>Demo-Zugang für diese Vorschau: Personalnummer <strong>1001</strong>, Passwort <strong>demo1234</strong>. Im Live-Betrieb erfolgt die Anmeldung mit persönlichen Zugangsdaten über einen geschützten Server.</p>
+            <form id="maForm" novalidate>
+              <div style="margin-bottom:14px;">
+                <label for="ma-nummer">Personalnummer *</label>
+                <input id="ma-nummer" type="text" placeholder="z. B. 1001" />
+              </div>
+              <div>
+                <label for="ma-passwort">Passwort *</label>
+                <input id="ma-passwort" type="password" placeholder="Ihr Passwort" />
+                <div class="fehler" id="e-ma">Personalnummer oder Passwort ist falsch.</div>
+              </div>
+              <button type="submit" class="btn btn-gold">Anmelden</button>
+            </form>
+          </div>
+          <div class="ma-info">
+            <h3>Nach der Anmeldung verfügbar</h3>
+            <ul>
+              <li>Mein Dienstplan: Einsatzzeiten, Objekte und Hinweise pro Woche</li>
+              <li>Schulungen: verbindliche Termine, Nachweise und Anmeldungen</li>
+              <li>Mitteilungen: aktuelle Informationen der Einsatzleitung</li>
+              <li>Dokumente: Dienstanweisungen, Checklisten und Formulare</li>
+              <li>Dienst- und Urlaubswünsche direkt an die Einsatzleitung</li>
+            </ul>
+          </div>
+        </div>
+        <div class="ma-portal" id="maPortal">
+          <div class="ma-kopf">
+            <div>
+              <strong id="maGruss">Angemeldet</strong>
+              <span class="demo-badge">Demo-Ansicht – Beispieldaten</span>
+            </div>
+            <button class="btn btn-ghost" onclick="maAbmelden()">Abmelden</button>
+          </div>
+          <div class="ma-tabs">
+            <button class="ma-tab-btn aktiv" data-tab="dienstplan" type="button">Mein Dienstplan</button>
+            <button class="ma-tab-btn" data-tab="schulungen" type="button">Schulungen</button>
+            <button class="ma-tab-btn" data-tab="mitteilungen" type="button">Mitteilungen</button>
+            <button class="ma-tab-btn" data-tab="dokumente" type="button">Dokumente &amp; Wünsche</button>
+          </div>
+          <div class="ma-panel aktiv" id="tab-dienstplan">
+            <div class="dp-wrap">
+              <table class="dienstplan-tabelle">
+                <thead>
+                  <tr><th>Datum</th><th>Zeit</th><th>Objekt</th><th>Funktion</th><th>Hinweis</th></tr>
+                </thead>
+                <tbody id="dienstplanBody"></tbody>
+              </table>
+            </div>
+            <div class="test-hinweis" style="margin-top:14px;">Beispiel-Dienstplan für die Woche 16. bis 22. November 2026 (32 Einsatzstunden, alle Ruhezeiten eingehalten). Im Live-Betrieb wird der Plan zentral erstellt und automatisch angezeigt; neue Einträge erscheinen sofort nach Veröffentlichung durch die Einsatzleitung.</div>
+          </div>
+          <div class="ma-panel" id="tab-schulungen">
+            <div class="schulung">
+              <div><strong>Erste-Hilfe-Auffrischung</strong><span>Mi, 25.11.2026, 09:00–16:00 · Schulungsraum Frankfurt</span></div>
+              <span class="status-pill status-ok">angemeldet</span>
+            </div>
+            <div class="schulung">
+              <div><strong>Einsatzdokumentation – digitale Meldewege</strong><span>Fr, 05.12.2026, 14:00–17:00 · Online-Schulung</span></div>
+              <span class="status-pill status-ok">angemeldet</span>
+            </div>
+            <div class="schulung">
+              <div><strong>Brandschutz-Unterweisung</strong><span>Mo, 14.12.2026, 08:00–12:00 · Objekt Bürozentrum Frankfurt</span></div>
+              <span class="status-pill status-offen">Anmeldung erforderlich</span>
+            </div>
+            <div class="schulung">
+              <div><strong>Unterrichtung nach § 34a GewO</strong><span>Nachweis gültig bis 31.03.2027</span></div>
+              <span class="status-pill status-ok">gültig</span>
+            </div>
+            <div class="test-hinweis">Beispieltermine. Im Live-Betrieb melden Sie sich hier direkt zu Schulungen an und laden Ihre Nachweise hoch.</div>
+          </div>
+          <div class="ma-panel" id="tab-mitteilungen">
+            <div id="maNewsList"></div>
+            <div class="test-hinweis">Mitteilungen werden von der Einsatzleitung über den Admin-Bereich veröffentlicht (Demo: nur in dieser Sitzung sichtbar).</div>
+          </div>
+          <div class="ma-panel" id="tab-dokumente">
+            <div class="dok-grid">
+              <button class="dok-btn" type="button" onclick="dokumentHinweis('Dienstanweisung Objektschutz')">Dienstanweisung Objektschutz</button>
+              <button class="dok-btn" type="button" onclick="dokumentHinweis('Checkliste Schichtübergabe')">Checkliste Schichtübergabe</button>
+              <button class="dok-btn" type="button" onclick="dokumentHinweis('Urlaubsantrag (Formular)')">Urlaubsantrag</button>
+              <button class="dok-btn" type="button" onclick="dokumentHinweis('Stundenzettel')">Stundenzettel</button>
+            </div>
+            <div class="dok-hinweis" id="dokHinweis"></div>
+            <form id="wunschForm" novalidate>
+              <div class="form-reihe">
+                <div>
+                  <label for="wunsch-zeitraum">Dienst- oder Urlaubswunsch: Zeitraum *</label>
+                  <input id="wunsch-zeitraum" type="text" placeholder="z. B. 30.11.–04.12.2026" />
+                </div>
+                <div>
+                  <label for="wunsch-grund">Anliegen (optional)</label>
+                  <input id="wunsch-grund" type="text" placeholder="z. B. Urlaub, Wunscheinsatz, Verfügbarkeit" />
+                </div>
+              </div>
+              <div class="test-hinweis">Ihr Wunsch wird an m.eroglu@m-safety-solution.de gesendet.</div>
+              <button type="submit" class="btn btn-gold">Wunsch senden</button>
+            </form>
+            <div class="erfolg" id="wunsch-erfolg"></div>
+            <div class="kopierbereich" id="wunsch-kopie">
+              <label for="wunsch-kopietext">Falls sich kein E-Mail-Programm öffnet: Nachricht markieren, kopieren und manuell senden.</label>
+              <textarea id="wunsch-kopietext" rows="5" readonly></textarea>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kontakt -->
+      <section class="abschnitt reveal" id="kontakt">
+        <div class="abschnitt-kopf">
+          <div class="ueberlinie">Kontakt</div>
+          <h2>Ihre Anfrage</h2>
+          <p>Beschreiben Sie kurz Ihr Objekt und Ihren Bedarf. Ihre Nachricht geht direkt an unser Postfach – die E-Mail-Adresse bleibt dabei verborgen.</p>
+        </div>
+        <div class="anfrage-box">
+          <div class="anfrage-info">
+            <h3>Direkter Kontakt</h3>
+            <p>Für dringende Anliegen erreichen Sie uns direkt telefonisch – rund um die Uhr. Anfragen von Firmen und Auftraggebern laufen über das Formular.</p>
+            <div class="kontaktzeile">
+              <span class="ico">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.9 2.2z"/></svg>
+              </span>
+              <div><strong>Telefon</strong><a href="tel:01779700189">0177 / 970 01 89</a></div>
+            </div>
+            <div class="kontaktzeile">
+              <span class="ico">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <div><strong>Anschrift</strong><span>Sieringstr. 44, 65929 Frankfurt am Main</span></div>
+            </div>
+            <div class="kontaktzeile">
+              <span class="ico">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+              </span>
+              <div><strong>Geschäftsführer</strong><span>M. Eroglu</span></div>
+            </div>
+            <div class="kontaktzeile">
+              <span class="ico">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              </span>
+              <div><strong>E-Mail</strong><span>Über das Formular – die Adresse bleibt verborgen.</span></div>
+            </div>
+          </div>
+
+          <form id="anfrageForm" novalidate>
+            <div class="form-reihe">
+              <div>
+                <label for="f-name">Name *</label>
+                <input id="f-name" type="text" placeholder="Ihr Name" />
+                <div class="fehler" id="e-name">Bitte geben Sie Ihren Namen an.</div>
+              </div>
+              <div>
+                <label for="f-firma">Unternehmen (optional)</label>
+                <input id="f-firma" type="text" placeholder="Firma oder Organisation" />
+              </div>
+            </div>
+            <div class="form-reihe">
+              <div>
+                <label for="f-mail">E-Mail-Adresse *</label>
+                <input id="f-mail" type="email" placeholder="name@beispiel.de" />
+                <div class="fehler" id="e-mail">Bitte geben Sie eine gültige E-Mail-Adresse an.</div>
+              </div>
+              <div>
+                <label for="f-tel">Telefon (optional)</label>
+                <input id="f-tel" type="tel" placeholder="Für schnelle Rückfragen" />
+              </div>
+            </div>
+            <div>
+              <label for="f-leistung">Gewünschte Leistung *</label>
+              <select id="f-leistung">
+                <option value="">Bitte auswählen</option>
+                <option>Objektschutz</option>
+                <option>Baustellenbewachung</option>
+                <option>Betriebssanitäter</option>
+                <option>Reinigungsdienste</option>
+                <option>Servicedienstleistungen</option>
+                <option>Brandwache</option>
+                <option>Mehrere Leistungen / Beratung</option>
+              </select>
+              <div class="fehler" id="e-leistung">Bitte wählen Sie eine Leistung aus.</div>
+            </div>
+            <div>
+              <label for="f-nachricht">Beschreibung *</label>
+              <textarea id="f-nachricht" placeholder="Objektart, Standort, Zeitraum, Umfang …"></textarea>
+              <div class="fehler" id="e-nachricht">Bitte beschreiben Sie Ihr Anliegen kurz.</div>
+            </div>
+            <div class="test-hinweis">Ihre Anfrage wird an m.eroglu@m-safety-solution.de gesendet.</div>
+            <button type="submit" class="btn btn-gold">Anfrage absenden</button>
+            <p class="pflicht">* Pflichtfelder. Nach dem Absenden öffnet sich Ihr E-Mail-Programm mit der fertigen Nachricht.</p>
+            <div class="erfolg" id="erfolg"></div>
+            <div class="kopierbereich" id="f-kopie">
+              <label for="f-kopietext">Falls sich kein E-Mail-Programm öffnet: Nachricht markieren, kopieren und manuell senden.</label>
+              <textarea id="f-kopietext" rows="7" readonly></textarea>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="fuss">
+        <div class="fuss-oben">
+          <div>
+            <div class="fuss-marke">
+              <svg width="46" height="46" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                <circle cx="50" cy="50" r="47" fill="#14345c"/>
+                <circle cx="50" cy="50" r="47" stroke="#c9a227" stroke-width="3" fill="none"/>
+                <text x="50" y="46" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="800" fill="#e6c55c">M&amp;I</text>
+                <path d="M 30 50 A 30 30 0 0 0 70 50" stroke="#c9a227" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+              </svg>
+              <div class="fuss-marke-text">
+                <strong style="display:block;">M&amp;I Safety - Solution GmbH</strong>
+                <span>Safety • Security • Solutions</span>
+              </div>
+            </div>
+            <p>Sicherheits- und Dienstleistungen für Gewerbe, Industrie und öffentliche Auftraggeber: Objektschutz, Baustellenbewachung, Betriebssanitäter, Reinigungsdienste, Servicedienstleistungen und Brandwache.</p>
+            <div class="fuss-slogan">Sicherheit. Zuverlässigkeit. Professionelle Lösungen.</div>
+          </div>
+          <div>
+            <h4>Seiten</h4>
+            <ul>
+              <li><a href="#leistungen">Leistungen</a></li>
+              <li><a href="#welten">Leistungswelten</a></li>
+              <li><a href="#aktuelles">Aktuelles</a></li>
+              <li><a href="#begriffe">Begriffe</a></li>
+              <li><a href="#branchen">Branchen</a></li>
+              <li><a href="#ablauf">Ablauf</a></li>
+              <li><a href="#bewertungen">Bewertungen</a></li>
+              <li><a href="#partner">Partner &amp; Zertifikate</a></li>
+              <li><a href="#ueber-uns">Über uns</a></li>
+              <li><a href="#bewerbung">Karriere</a></li>
+              <li><a href="#kontakt">Kontakt</a></li>
+              <li><a href="#mitarbeiter">Mitarbeiter-Bereich</a></li>
+              <li><a href="#" id="adminLink">Admin-Bereich (Demo)</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Kontakt</h4>
+            <ul>
+              <li><a href="tel:01779700189">0177 / 970 01 89</a></li>
+              <li><a href="#kontakt">Kontakt über Formular</a></li>
+              <li><span style="color:#9db0ca;font-size:0.9rem;">Sieringstr. 44<br />65929 Frankfurt am Main</span></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Rechtliches</h4>
+            <ul>
+              <li><a href="#" onclick="legalOeffnen('impressum'); return false;">Impressum</a></li>
+              <li><a href="#" onclick="legalOeffnen('datenschutz'); return false;">Datenschutz</a></li>
+              <li><a href="#" onclick="legalOeffnen('agb'); return false;">AGB</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="ki-hinweis">
+          <strong>Hinweis zur Erstellung:</strong> Diese Website wurde mit Unterstützung von Künstlicher Intelligenz (KI) erstellt. Konzept, Inhalte und Freigabe liegen beim Auftraggeber; vor dem Live-Betrieb werden alle Beispieldaten durch geprüfte Angaben ersetzt.
+        </div>
+        <div class="fuss-unten">
+          <span>© 2026 M&amp;I Safety - Solution GmbH · Sieringstr. 44 · 65929 Frankfurt am Main · Geschäftsführer: M. Eroglu</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Rechtstexte (Beispieltexte, Demo) -->
+    <div class="legal-overlay" id="legalOverlay">
+      <div class="legal-panel">
+        <button class="admin-x" onclick="legalSchliessen()" aria-label="Schließen">×</button>
+        <h3 id="legalTitel">Rechtstext</h3>
+        <div id="legalInhalt"></div>
+      </div>
+    </div>
+
+    <!-- Cookie-Hinweis (Demo) -->
+    <div class="cookie-bar" id="cookieBar">
+      <p>Diese Demo-Website setzt keine Tracking-Cookies und bindet keine Analyse-Dienste ein. Im Live-Betrieb würden nicht notwendige Cookies erst nach Ihrer Einwilligung gesetzt (DSGVO / TDDDG). <strong>Demo-Hinweis:</strong> Es werden keine Cookies gesetzt und keine Auswahl gespeichert.</p>
+      <div class="cookie-aktion">
+        <button class="btn btn-gold" onclick="cookieSchliessen()">Einverstanden</button>
+        <button class="btn btn-ghost" onclick="cookieSchliessen()">Nur notwendige</button>
+      </div>
+    </div>
+
+    <!-- Admin-Bereich (Demo) -->
+    <div class="admin-overlay" id="adminOverlay">
+      <div class="admin-panel">
+        <button class="admin-x" onclick="adminSchliessen()" aria-label="Admin-Bereich schließen">×</button>
+        <h3>Admin-Bereich</h3>
+        <div class="sub">Demo-Ansicht: In dieser Vorschau werden Einträge nur temporär im Browser angezeigt. Ein echter Admin-Bereich erfordert beim Live-Betrieb einen Server mit Datenbank und geschützter Anmeldung.</div>
+        <div id="adminLogin">
+          <div class="admin-feld">
+            <label for="adminPw">Passwort</label>
+            <input type="password" id="adminPw" placeholder="Demo-Passwort: demo1234" />
+            <div class="fehler" id="e-admin">Das Passwort ist falsch.</div>
+          </div>
+          <button class="btn btn-navy" onclick="adminEinloggen()">Anmelden</button>
+        </div>
+        <div id="adminInhalt" style="display:none;">
+          <div class="admin-feld">
+            <label for="promoText">Werbung / Banner am Seitenkopf</label>
+            <input type="text" id="promoText" placeholder="z. B. Aktuell: Verstärkung gesucht – Bewerbung über das Formular" />
+          </div>
+          <div class="admin-actions">
+            <button class="btn btn-gold" onclick="promoSetzen()">Banner aktivieren</button>
+            <button class="btn btn-ghost" onclick="promoLoeschen()">Banner entfernen</button>
+          </div>
+          <div class="admin-feld" style="margin-top:24px;">
+            <label for="partnerName">Werbepartner hinzufügen</label>
+            <input type="text" id="partnerName" placeholder="Name des Partners" />
+          </div>
+          <div class="admin-actions">
+            <button class="btn btn-gold" onclick="partnerHinzufuegen()">Partner hinzufügen</button>
+          </div>
+          <div class="admin-feld" style="margin-top:24px;">
+            <label for="zertName">Zertifikat / ISO-Norm hinzufügen</label>
+            <input type="text" id="zertName" placeholder="z. B. DIN EN ISO 9001" />
+            <input type="text" id="zertBeschreibung" placeholder="Kurze Beschreibung (optional)" style="margin-top:8px;" />
+          </div>
+          <div class="admin-actions">
+            <button class="btn btn-gold" onclick="zertifikatHinzufuegen()">Zertifikat hinzufügen</button>
+          </div>
+          <div class="admin-feld" style="margin-top:24px;">
+            <label for="maNewsText">Mitteilung an das Team veröffentlichen (Mitarbeiter-Bereich)</label>
+            <textarea id="maNewsText" rows="2" placeholder="z. B. Einsatzleitung ab sofort rund um die Uhr über die Hotline erreichbar"></textarea>
+          </div>
+          <div class="admin-actions">
+            <button class="btn btn-gold" onclick="mitteilungVeroeffentlichen()">Mitteilung veröffentlichen</button>
+          </div>
+          <div class="admin-feld" style="margin-top:24px;">
+            <label for="dpDatum">Dienstplaneintrag hinzufügen (Mitarbeiter-Bereich)</label>
+            <div class="form-reihe">
+              <input type="text" id="dpDatum" placeholder="Datum, z. B. Mo 23.11.2026" />
+              <input type="text" id="dpZeit" placeholder="Zeit, z. B. 07:00–15:00" />
+            </div>
+            <input type="text" id="dpObjekt" placeholder="Objekt" style="margin-top:8px;" />
+            <input type="text" id="dpFunktion" placeholder="Funktion" style="margin-top:8px;" />
+            <input type="text" id="dpHinweis" placeholder="Hinweis (optional)" style="margin-top:8px;" />
+          </div>
+          <div class="admin-actions">
+            <button class="btn btn-gold" onclick="dienstplanHinzufuegen()">Eintrag hinzufügen</button>
+          </div>
+          <div class="admin-feld" style="margin-top:24px;">
+            <label for="newsTitel">Aktuelle Meldung veröffentlichen (öffentlicher Bereich)</label>
+            <input type="text" id="newsTitel" placeholder="Titel der Meldung" />
+            <textarea id="newsText" rows="2" placeholder="Kurzer Text der Meldung" style="margin-top:8px;"></textarea>
+          </div>
+          <div class="admin-actions">
+            <button class="btn btn-gold" onclick="aktuellesVeroeffentlichen()">Meldung veröffentlichen</button>
+          </div>
+          <div class="admin-liste" id="adminMeldung">Noch keine Änderungen in dieser Sitzung.</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /* Empfänger der Formularnachrichten */
+      const TEST_EMPFAENGER = "m.eroglu@m-safety-solution.de";
+
+      /* Mobiles Menü */
+      const burger = document.getElementById("burger");
+      const navLinks = document.getElementById("navLinks");
+      burger.addEventListener("click", function () {
+        navLinks.classList.toggle("offen");
+      });
+      navLinks.addEventListener("click", function (e) {
+        if (e.target.tagName === "A") navLinks.classList.remove("offen");
+      });
+
+      /* Aktiven Menüpunkt hervorheben (Scrollspy) */
+      const links = Array.prototype.slice.call(document.querySelectorAll(".nav-links a"));
+      const abschnitte = links
+        .map(function (a) { return document.querySelector(a.getAttribute("href")); })
+        .filter(function (s) { return s !== null; });
+      const spy = new IntersectionObserver(
+        function (eintraege) {
+          eintraege.forEach(function (e) {
+            if (e.isIntersecting) {
+              links.forEach(function (a) { a.classList.remove("aktiv"); });
+              const aktiv = links.filter(function (a) { return a.getAttribute("href") === "#" + e.target.id; })[0];
+              if (aktiv) aktiv.classList.add("aktiv");
+            }
+          });
+        },
+        { rootMargin: "-40% 0px -55% 0px" }
+      );
+      abschnitte.forEach(function (s) { spy.observe(s); });
+
+      /* Erscheinen beim Scrollen */
+      const observer = new IntersectionObserver(
+        function (eintraege) {
+          eintraege.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add("sichtbar");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      document.querySelectorAll(".reveal").forEach(function (el) { observer.observe(el); });
+
+      /* E-Mail-Versand über das E-Mail-Programm des Nutzers */
+      function sendePerMail(betreff, zeilen, erfolgFeld, kopieBereich, kopieText) {
+        const text = zeilen.join("\n");
+        const url = "mailto:" + TEST_EMPFAENGER +
+          "?subject=" + encodeURIComponent(betreff) +
+          "&body=" + encodeURIComponent(text);
+        try {
+          window.location.href = url;
+        } catch (err) { /* Fallback unten */ }
+        document.getElementById(erfolgFeld).innerHTML =
+          "Ihr E-Mail-Programm wurde mit der fertigen Nachricht geöffnet. Bitte prüfen Sie die Angaben und klicken Sie dort auf <strong>Senden</strong>. " +
+          "Die Nachricht ist an " + TEST_EMPFAENGER + " adressiert.<br />" +
+          "Falls sich kein E-Mail-Programm öffnet (z. B. in dieser Vorschau), nutzen Sie bitte den Text unten.";
+        document.getElementById(erfolgFeld).style.display = "block";
+        document.getElementById(kopieBereich).style.display = "block";
+        document.getElementById(kopieText).value = "An: " + TEST_EMPFAENGER + "\nBetreff: " + betreff + "\n\n" + text;
+      }
+
+      /* Kontaktformular */
+      const form = document.getElementById("anfrageForm");
+      const fehlerzeigen = function (id, zeigen) {
+        document.getElementById(id).style.display = zeigen ? "block" : "none";
+      };
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const name = document.getElementById("f-name").value.trim();
+        const firma = document.getElementById("f-firma").value.trim();
+        const mail = document.getElementById("f-mail").value.trim();
+        const tel = document.getElementById("f-tel").value.trim();
+        const leistung = document.getElementById("f-leistung").value;
+        const nachricht = document.getElementById("f-nachricht").value.trim();
+        const mailGueltig = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail);
+
+        fehlerzeigen("e-name", name === "");
+        fehlerzeigen("e-mail", !mailGueltig);
+        fehlerzeigen("e-leistung", leistung === "");
+        fehlerzeigen("e-nachricht", nachricht === "");
+
+        if (name !== "" && mailGueltig && leistung !== "" && nachricht !== "") {
+          sendePerMail(
+            "Anfrage über Website: " + leistung,
+            [
+              "Name: " + name,
+              "Unternehmen: " + (firma !== "" ? firma : "-"),
+              "E-Mail: " + mail,
+              "Telefon: " + (tel !== "" ? tel : "-"),
+              "Gewünschte Leistung: " + leistung,
+              "",
+              "Beschreibung:",
+              nachricht,
+              "",
+              "Gesendet über das Kontaktformular der Website."
+            ],
+            "erfolg", "f-kopie", "f-kopietext"
+          );
+          form.querySelector("button[type=submit]").disabled = true;
+        }
+      });
+
+      /* Bewerbungsformular */
+      const bewForm = document.getElementById("bewerbungForm");
+      const bFehler = function (id, zeigen) {
+        document.getElementById(id).style.display = zeigen ? "block" : "none";
+      };
+      bewForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const bName = document.getElementById("b-name").value.trim();
+        const bMail = document.getElementById("b-mail").value.trim();
+        const bTel = document.getElementById("b-tel").value.trim();
+        const bSparte = document.getElementById("b-sparte").value;
+        const bVerf = document.getElementById("b-verfuegbarkeit").value.trim();
+        const bText = document.getElementById("b-nachricht").value.trim();
+        const bGueltig = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(bMail);
+
+        bFehler("eb-name", bName === "");
+        bFehler("eb-mail", !bGueltig);
+        bFehler("eb-sparte", bSparte === "");
+        bFehler("eb-nachricht", bText === "");
+
+        if (bName !== "" && bGueltig && bSparte !== "" && bText !== "") {
+          sendePerMail(
+            "Bewerbung über Website: " + bSparte,
+            [
+              "Name: " + bName,
+              "E-Mail: " + bMail,
+              "Telefon: " + (bTel !== "" ? bTel : "-"),
+              "Wunschbereich: " + bSparte,
+              "Verfügbarkeit: " + (bVerf !== "" ? bVerf : "-"),
+              "",
+              "Nachricht:",
+              bText,
+              "",
+              "Gesendet über das Bewerbungsformular der Website."
+            ],
+            "b-erfolg", "b-kopie", "b-kopietext"
+          );
+          bewForm.querySelector("button[type=submit]").disabled = true;
+        }
+      });
+
+      /* Mitarbeiter-Bereich (Demo) */
+      const MA_KONTO = { nummer: "1001", passwort: "demo1234", name: "Demo-Zugang" };
+      let dienstplanDaten = [
+        { datum: "Mo 16.11.2026", zeit: "07:00–15:00", objekt: "Logistikzentrum Kelsterbach", funktion: "Objektschutz – Zutrittskontrolle", hinweis: "Übergabe 06:45 am Pförtnerhaus" },
+        { datum: "Di 17.11.2026", zeit: "07:00–15:00", objekt: "Bürozentrum Frankfurt", funktion: "Empfangs- und Pförtnerdienst", hinweis: "Besucherliste prüfen" },
+        { datum: "Mi 18.11.2026", zeit: "–", objekt: "Kein Einsatz geplant", funktion: "–", hinweis: "Wunschdienst über Formular möglich" },
+        { datum: "Do 19.11.2026", zeit: "15:00–23:00", objekt: "Bürozentrum Frankfurt", funktion: "Objektschutz – Spätdienst", hinweis: "Schichtübergabe 14:45" },
+        { datum: "Fr 20.11.2026", zeit: "–", objekt: "Kein Einsatz geplant", funktion: "–", hinweis: "" },
+        { datum: "Sa 21.11.2026", zeit: "08:00–16:00", objekt: "Veranstaltungszentrum Frankfurt", funktion: "Brandwache", hinweis: "Einweisung 07:30, Feuerwehrplan mitnehmen" },
+        { datum: "So 22.11.2026", zeit: "–", objekt: "Kein Einsatz geplant", funktion: "–", hinweis: "" }
+      ];
+      let maMitteilungen = [
+        { titel: "Einsatzleitung rund um die Uhr erreichbar", datum: "13.11.2026", text: "Die Einsatzleitung ist ab sofort Tag und Nacht über die bekannte Hotline erreichbar. Bei akuten Vorfällen bitte immer zuerst die Einsatzleitung informieren." },
+        { titel: "Schulungsplan aktualisiert", datum: "10.11.2026", text: "Die Termine für Erste-Hilfe-Auffrischung und Brandschutz-Unterweisung wurden aktualisiert. Bitte in der Rubrik Schulungen prüfen und die Teilnahme bestätigen." }
+      ];
+      function renderDienstplan() {
+        const body = document.getElementById("dienstplanBody");
+        body.innerHTML = "";
+        dienstplanDaten.forEach(function (e) {
+          const tr = document.createElement("tr");
+          if (e.zeit === "–") tr.className = "frei";
+          tr.innerHTML = "<td>" + e.datum + "</td><td>" + e.zeit + "</td><td>" + e.objekt + "</td><td>" + e.funktion + "</td><td>" + (e.hinweis !== "" ? e.hinweis : "–") + "</td>";
+          body.appendChild(tr);
+        });
+      }
+      function renderMitteilungen() {
+        const liste = document.getElementById("maNewsList");
+        liste.innerHTML = "";
+        maMitteilungen.forEach(function (m) {
+          const div = document.createElement("div");
+          div.className = "ma-news-item";
+          div.innerHTML = "<strong>" + m.titel + "</strong><span>" + m.datum + " · Einsatzleitung</span><p>" + m.text + "</p>";
+          liste.appendChild(div);
+        });
+      }
+      function maTabAktivieren(name) {
+        document.querySelectorAll(".ma-tab-btn").forEach(function (b) { b.classList.remove("aktiv"); });
+        document.querySelectorAll(".ma-panel").forEach(function (p) { p.classList.remove("aktiv"); });
+        const knopf = document.querySelector('.ma-tab-btn[data-tab="' + name + '"]');
+        if (knopf) knopf.classList.add("aktiv");
+        const panel = document.getElementById("tab-" + name);
+        if (panel) panel.classList.add("aktiv");
+      }
+      document.querySelectorAll(".ma-tab-btn").forEach(function (b) {
+        b.addEventListener("click", function () { maTabAktivieren(b.getAttribute("data-tab")); });
+      });
+      document.getElementById("maForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const nummer = document.getElementById("ma-nummer").value.trim();
+        const passwort = document.getElementById("ma-passwort").value;
+        if (nummer === MA_KONTO.nummer && passwort === MA_KONTO.passwort) {
+          document.getElementById("e-ma").style.display = "none";
+          document.getElementById("maLoginKarte").style.display = "none";
+          const portal = document.getElementById("maPortal");
+          portal.classList.add("sichtbar");
+          document.getElementById("maGruss").textContent = "Angemeldet als Personalnummer " + MA_KONTO.nummer + " (" + MA_KONTO.name + ")";
+          renderDienstplan();
+          renderMitteilungen();
+        } else {
+          document.getElementById("e-ma").style.display = "block";
+        }
+      });
+      function maAbmelden() {
+        document.getElementById("maPortal").classList.remove("sichtbar");
+        document.getElementById("maLoginKarte").style.display = "block";
+        document.getElementById("maForm").reset();
+        document.getElementById("e-ma").style.display = "none";
+      }
+      function dokumentHinweis(name) {
+        const feld = document.getElementById("dokHinweis");
+        feld.style.display = "block";
+        feld.innerHTML = "<strong>" + name + ":</strong> Demo-Ansicht. Im Live-Betrieb steht hier das Dokument als PDF zum Download bereit – freigegeben nur für angemeldete Mitarbeitende.";
+      }
+      document.getElementById("wunschForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const zeitraum = document.getElementById("wunsch-zeitraum").value.trim();
+        const grund = document.getElementById("wunsch-grund").value.trim();
+        if (zeitraum === "") return;
+        sendePerMail(
+          "Dienst-/Urlaubswunsch über Mitarbeiter-Bereich",
+          [
+            "Personalnummer: " + MA_KONTO.nummer,
+            "Zeitraum: " + zeitraum,
+            "Anliegen: " + (grund !== "" ? grund : "-"),
+            "",
+            "Gesendet über den Mitarbeiter-Bereich der Website."
+          ],
+          "wunsch-erfolg", "wunsch-kopie", "wunsch-kopietext"
+        );
+      });
+
+      /* Rechtstexte (Beispieltexte, vor Veröffentlichung rechtlich prüfen lassen) */
+      const RECHTSTEXTE = {
+        impressum: {
+          titel: "Impressum",
+          html: `<div class="rechtshinweis">Beispieltext für diese Demo-Website. Vor einer Veröffentlichung müssen alle Pflichtangaben vollständig sein und durch eine rechtliche Prüfung bestätigt werden (Paragraf 5 DDG, Paragraf 18 MStV).</div>
+          <h4>Anbieter</h4>
+          <p>M&amp;I Safety - Solution GmbH<br />Sieringstr. 44<br />65929 Frankfurt am Main<br />Deutschland</p>
+          <h4>Vertreten durch</h4>
+          <p>Geschäftsführer: Herr M. Eroglu</p>
+          <h4>Kontakt</h4>
+          <p>Telefon: 0177 / 970 01 89<br />E-Mail: m.eroglu@m-safety-solution.de<br />Kontaktformular: auf dieser Website verfügbar</p>
+          <h4>Umsatzsteuer-Identifikationsnummer</h4>
+          <p>Noch einzutragen (Platzhalter – vor dem Live-Betrieb ergänzen).</p>
+          <h4>Registereintrag</h4>
+          <p>Handelsregister-Eintrag: noch einzutragen (Platzhalter – vor dem Live-Betrieb ergänzen).</p>
+          <h4>Verantwortlich für den Inhalt</h4>
+          <p>Paragraf 18 Abs. 2 MStV: M. Eroglu, Anschrift wie oben.</p>
+          <h4>Streitschlichtung</h4>
+          <p>Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+          <h4>Erstellung der Website</h4>
+          <p>Diese Website wurde mit Unterstützung von Künstlicher Intelligenz (KI) erstellt. Die Inhalte wurden vom Auftraggeber vorgegeben, geprüft und freigegeben.</p>`
+        },
+        datenschutz: {
+          titel: "Datenschutzerklärung",
+          html: `<div class="rechtshinweis">Beispieltext für diese Demo-Website. Vor dem Live-Betrieb ist die Erklärung an die tatsächlich eingesetzten Dienste (Hosting, Formulare, Analysesoftware) anzupassen und rechtlich zu prüfen. Nicht notwendige Cookies dürfen erst nach Einwilligung gesetzt werden (DSGVO / TDDDG).</div>
+          <h4>1. Verantwortliche Stelle</h4>
+          <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist die M&amp;I Safety - Solution GmbH, Sieringstr. 44, 65929 Frankfurt am Main. Kontakt über das Formular auf dieser Website.</p>
+          <h4>2. Datenschutzbeauftragter</h4>
+          <p>Noch zu benennen. Sobald ein Datenschutzbeauftragter bestellt ist, werden Name und Kontaktmöglichkeit hier ergänzt (Platzhalter).</p>
+          <h4>3. Kontakt- und Bewerbungsformulare</h4>
+          <p>Die Formulare auf dieser Seite öffnen Ihr eigenes E-Mail-Programm mit einer vorbereiteten Nachricht. Die von Ihnen eingegebenen Daten werden in dieser Demo nicht serverseitig gespeichert; sie verlassen Ihren Rechner erst mit dem Absenden über Ihr E-Mail-Programm. Im Live-Betrieb gelten die Zwecke und Löschfristen gemäß Paragraf 26 BDSG (Bewerbungen) bzw. Paragraf 6 DSGVO (Vertragsanbahnung).</p>
+          <h4>4. Hosting und Server-Logfiles</h4>
+          <p>Im Live-Betrieb verarbeitet der Hosting-Anbieter als unser Auftragsverarbeiter auf unseren Weisung technische Daten (IP-Adresse, Zeitstempel, Browsertyp) auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Ein Vertrag über Auftragsverarbeitung ist abzuschließen und regelmäßig zu prüfen.</p>
+          <h4>5. Cookies und Tracking</h4>
+          <p>Diese Demo-Website setzt keine Tracking-Cookies und bindet keine Analyse-Dienste, Karten oder Videos von Dritten ein. Werden im Live-Betrieb solche Angebote eingesetzt, dürfen nicht notwendige Cookies erst nach ausdrücklicher, jederzeit widerrufbarer Einwilligung gesetzt werden. Externe Schriften (z. B. Webfonts) sind lokal einzubinden, damit keine IP-Adressen an Dritte übermittelt werden.</p>
+          <h4>6. Speicherdauer</h4>
+          <p>Personenbezogene Daten werden gelöscht, sobald der Verarbeitungszweck entfällt, sofern keine gesetzlichen Aufbewahrungs- oder Nachweispflichten bestehen.</p>
+          <h4>7. Ihre Rechte</h4>
+          <p>Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21). Außerdem steht Ihnen ein Beschwerderecht bei einer Datenschutzaufsichtsbehörde zu; für Hessen ist das der Hessische Beauftragte für Datenschutz und Informationsfreiheit.</p>
+          <h4>8. Stand</h4>
+          <p>Beispieltext, Stand November 2026.</p>`
+        },
+        agb: {
+          titel: "Allgemeine Geschäftsbedingungen (Auszug)",
+          html: `<div class="rechtshinweis">Beispielauszug für diese Demo-Website. Vor dem Live-Betrieb sind vollständige AGB zu erstellen und rechtlich zu prüfen.</div>
+          <h4>1. Leistungsumfang</h4>
+          <p>Der Umfang der Sicherheits- und Dienstleistungen (Objektschutz, Baustellenbewachung, Betriebssanitäter, Reinigungsdienste, Servicedienstleistungen, Brandwache) ergibt sich ausschließlich aus dem jeweiligen Vertrag und Angebot.</p>
+          <h4>2. Angebote und Vergütung</h4>
+          <p>Angebote sind freibleibend, sofern sie nicht ausdrücklich als Festpreisangebot gekennzeichnet sind. Die Vergütung folgt den vereinbarten Preisen; Rechnungen sind ohne Abzug fällig.</p>
+          <h4>3. Vertraulichkeit und Einsatzdokumentation</h4>
+          <p>Beide Parteien behandeln sicherheitsrelevante Angaben zum Objekt vertraulich. Einsätze werden nach Branchenstandard dokumentiert; die Dokumentation wird dem Auftraggeber auf Wunsch zur Verfügung gestellt.</p>
+          <h4>4. Mitwirkung des Auftraggebers</h4>
+          <p>Der Auftraggeber stellt erforderliche Zutritte, Ausweise und Informationen bereit und teilt sicherheitsrelevante Änderungen unverzüglich mit.</p>
+          <h4>5. Haftung</h4>
+          <p>Wir haften unbeschränkt bei Vorsatz und grober Fahrlässigkeit; im Übrigen nur für die vertragstypischen, vorhersehbaren Schäden (Beispielklausel – rechtlich zu prüfen).</p>
+          <h4>6. Schlussbestimmungen</h4>
+          <p>Es gilt deutsches Recht. Änderungen und Ergänzungen bedürfen der Schriftform.</p>`
+        }
+      };
+      function legalOeffnen(art) {
+        const text = RECHTSTEXTE[art];
+        if (!text) return;
+        document.getElementById("legalTitel").textContent = text.titel;
+        document.getElementById("legalInhalt").innerHTML = text.html;
+        document.getElementById("legalOverlay").classList.add("offen");
+      }
+      function legalSchliessen() {
+        document.getElementById("legalOverlay").classList.remove("offen");
+      }
+
+      /* Cookie-Hinweis (Demo – es werden keine Cookies gesetzt) */
+      document.getElementById("cookieBar").classList.add("sichtbar");
+      function cookieSchliessen() {
+        document.getElementById("cookieBar").classList.remove("sichtbar");
+      }
+
+      /* Aktuelles (öffentlicher News-Bereich) */
+      let newsDaten = [
+        { titel: "Verstärkung für Objektschutz und Baustellenbewachung gesucht", text: "Wir wachsen und suchen zuverlässige Kräfte für Schutzaufgaben. Bewerbungen laufen über das Karriere-Formular auf dieser Seite.", datum: "12.11.2026" },
+        { titel: "Brandwachen für Veranstaltungen im Angebot", text: "Ab sofort besetzen wir angeordnete Brandwachen für Veranstaltungen und bei Ausfall von Brandmeldeanlagen im Rhein-Main-Gebiet.", datum: "05.11.2026" },
+        { titel: "Schulungsprogramm läuft", text: "Erste-Hilfe-Auffrischungen und Brandschutz-Unterweisungen für unser Team laufen bis Dezember. Mitarbeitende finden alle Termine im Mitarbeiter-Bereich.", datum: "28.10.2026" }
+      ];
+      function renderNews() {
+        const grid = document.getElementById("newsGrid");
+        grid.innerHTML = "";
+        newsDaten.forEach(function (n) {
+          const div = document.createElement("div");
+          div.className = "news-karte";
+          div.innerHTML = "<small>" + n.datum + "</small><h3>" + n.titel + "</h3><p>" + n.text + "</p>";
+          grid.appendChild(div);
+        });
+      }
+      renderNews();
+      function aktuellesVeroeffentlichen() {
+        const titel = document.getElementById("newsTitel").value.trim();
+        const text = document.getElementById("newsText").value.trim();
+        if (titel === "" || text === "") {
+          adminMelden("Bitte Titel und Text der Meldung angeben.");
+          return;
+        }
+        const heute = new Date().toLocaleDateString("de-DE");
+        newsDaten.unshift({ titel: titel, text: text, datum: heute });
+        renderNews();
+        document.getElementById("newsTitel").value = "";
+        document.getElementById("newsText").value = "";
+        adminMelden("Aktuelle Meldung im öffentlichen Bereich veröffentlicht (" + heute + ").");
+      }
+
+      /* Admin: Veröffentlichungen für den Mitarbeiter-Bereich */
+      function mitteilungVeroeffentlichen() {
+        const text = document.getElementById("maNewsText").value.trim();
+        if (text === "") return;
+        const heute = new Date().toLocaleDateString("de-DE");
+        maMitteilungen.unshift({ titel: "Neue Mitteilung der Einsatzleitung", datum: heute, text: text });
+        renderMitteilungen();
+        document.getElementById("maNewsText").value = "";
+        adminMelden("Mitteilung im Mitarbeiter-Bereich veröffentlicht (" + heute + "). Sichtbar in der Rubrik Mitteilungen.");
+      }
+      function dienstplanHinzufuegen() {
+        const datum = document.getElementById("dpDatum").value.trim();
+        const zeit = document.getElementById("dpZeit").value.trim();
+        const objekt = document.getElementById("dpObjekt").value.trim();
+        const funktion = document.getElementById("dpFunktion").value.trim();
+        const hinweis = document.getElementById("dpHinweis").value.trim();
+        if (datum === "" || objekt === "") {
+          adminMelden("Bitte mindestens Datum und Objekt angeben.");
+          return;
+        }
+        dienstplanDaten.push({
+          datum: datum,
+          zeit: zeit !== "" ? zeit : "–",
+          objekt: objekt,
+          funktion: funktion !== "" ? funktion : "Wird noch festgelegt",
+          hinweis: hinweis
+        });
+        renderDienstplan();
+        ["dpDatum", "dpZeit", "dpObjekt", "dpFunktion", "dpHinweis"].forEach(function (id) {
+          document.getElementById(id).value = "";
+        });
+        adminMelden("Dienstplaneintrag hinzugefügt: " + datum + ", " + objekt + ".");
+      }
+
+      /* Admin-Bereich (Demo) */
+      const adminOverlay = document.getElementById("adminOverlay");
+      function adminOeffnen(e) {
+        if (e) e.preventDefault();
+        adminOverlay.classList.add("offen");
+      }
+      function adminSchliessen() {
+        adminOverlay.classList.remove("offen");
+        document.getElementById("adminLogin").style.display = "block";
+        document.getElementById("adminInhalt").style.display = "none";
+        document.getElementById("e-admin").style.display = "none";
+      }
+      function adminEinloggen() {
+        const pw = document.getElementById("adminPw").value;
+        if (pw === "demo1234") {
+          document.getElementById("adminLogin").style.display = "none";
+          document.getElementById("adminInhalt").style.display = "block";
+        } else {
+          document.getElementById("e-admin").style.display = "block";
+        }
+      }
+      function adminMelden(text) {
+        document.getElementById("adminMeldung").textContent = text;
+      }
+      function promoSetzen() {
+        const text = document.getElementById("promoText").value.trim();
+        if (text === "") return;
+        const promo = document.getElementById("promoBanner");
+        promo.textContent = text;
+        promo.style.display = "block";
+        adminMelden("Banner aktiviert: " + text);
+      }
+      function promoLoeschen() {
+        const promo = document.getElementById("promoBanner");
+        promo.textContent = "";
+        promo.style.display = "none";
+        adminMelden("Banner entfernt.");
+      }
+      function partnerHinzufuegen() {
+        const name = document.getElementById("partnerName").value.trim();
+        if (name === "") return;
+        const el = document.createElement("div");
+        el.className = "partner-badge";
+        el.innerHTML = name + "<small>Werbepartner</small>";
+        document.getElementById("partnerGrid").appendChild(el);
+        document.getElementById("partnerName").value = "";
+        adminMelden("Werbepartner hinzugefügt: " + name);
+      }
+      function zertifikatHinzufuegen() {
+        const name = document.getElementById("zertName").value.trim();
+        if (name === "") return;
+        const beschreibung = document.getElementById("zertBeschreibung").value.trim();
+        const el = document.createElement("div");
+        el.className = "zertifikat";
+        el.innerHTML =
+          '<span class="siegel"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></span>' +
+          "<div><strong>" + name + "</strong><span>" +
+          (beschreibung !== "" ? beschreibung : "Zertifikat / Norm") + "</span></div>";
+        document.getElementById("zertGrid").appendChild(el);
+        document.getElementById("zertName").value = "";
+        document.getElementById("zertBeschreibung").value = "";
+        adminMelden("Zertifikat hinzugefügt: " + name);
+      }
+      document.getElementById("adminLink").addEventListener("click", adminOeffnen);
+    </script>
+  </body>
+</html>
