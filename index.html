@@ -1002,6 +1002,7 @@
           <div class="ma-login" id="maLoginKarte">
             <h3>Anmeldung für Mitarbeitende</h3>
             <p>Bitte melden Sie sich mit Ihrer Personalnummer und Ihrem Passwort an. Zugangsdaten erhalten Sie von der Verwaltung; das erste Passwort ist einmalig gültig und wird nach der Erstanmeldung durch ein eigenes ersetzt.</p>
+            <div class="fehler" id="ma-portal-aus" style="display:none;">Das Mitarbeiter-Portal ist derzeit deaktiviert. Die Anmeldung ist gesperrt. Bitte wenden Sie sich an die Verwaltung.</div>
             <form id="maForm" novalidate>
               <div style="margin-bottom:14px;">
                 <label for="ma-nummer">Personalnummer *</label>
@@ -1432,6 +1433,14 @@
             <p style="font-size:0.8rem;color:#7c8a99;margin-top:8px;">Die Mitarbeiterin oder der Mitarbeiter erhält eine E-Mail-Benachrichtigung über die bereitgestellte Abrechnung. Der Download im Portal ist mit der persönlichen zehnstelligen Bewachernummer geschützt; diese Nummer wird aus Sicherheitsgründen niemals per E-Mail übermittelt.</p>
           </div>
           <div class="admin-feld" style="margin-top:24px;">
+            <label for="maPortalSchalter">Mitarbeiter-Portal</label>
+            <p id="maPortalStatusText" style="font-size:0.88rem;color:#7c8a99;margin:6px 0 10px;">Status wird nach der Anmeldung angezeigt.</p>
+            <div class="admin-actions">
+              <button class="btn btn-gold" id="maPortalSchalter" onclick="maPortalUmschalten()">Portal aktivieren</button>
+            </div>
+            <p style="font-size:0.8rem;color:#7c8a99;margin-top:8px;">Standardmäßig ist das Mitarbeiter-Portal deaktiviert; nur die Verwaltung kann es an dieser Stelle freischalten und sperren. In dieser Vorschau gilt der Status pro Browser-Gerät; in der Server-Lösung wird der Status zentral für alle Mitarbeitenden gespeichert.</p>
+          </div>
+          <div class="admin-feld" style="margin-top:24px;">
             <label for="newsTitel">Aktuelle Meldung veröffentlichen (öffentlicher Bereich)</label>
             <input type="text" id="newsTitel" placeholder="Titel der Meldung" />
             <textarea id="newsText" rows="2" placeholder="Kurzer Text der Meldung" style="margin-top:8px;"></textarea>
@@ -1743,8 +1752,50 @@
         ];
         window.location.href = "mailto:" + encodeURIComponent(email) + "?subject=" + encodeURIComponent(betreff) + "&body=" + encodeURIComponent(zeilen.join("\r\n"));
       }
+      const MA_PORTAL_SCHLUESSEL = "mi_portal_status";
+      function maPortalIstAktiv() {
+        return localStorage.getItem(MA_PORTAL_SCHLUESSEL) === "an";
+      }
+      function maPortalAnzeigen() {
+        const aktiv = maPortalIstAktiv();
+        const formular = document.getElementById("maForm");
+        const hinweis = document.getElementById("ma-portal-aus");
+        if (formular) formular.style.display = aktiv ? "block" : "none";
+        if (hinweis) hinweis.style.display = aktiv ? "none" : "block";
+      }
+      function maPortalStatusAktualisieren() {
+        const text = document.getElementById("maPortalStatusText");
+        const knopf = document.getElementById("maPortalSchalter");
+        if (!text || !knopf) return;
+        if (maPortalIstAktiv()) {
+          text.textContent = "Status: aktiviert. Mitarbeitende können sich anmelden.";
+          knopf.textContent = "Portal deaktivieren";
+        } else {
+          text.textContent = "Status: deaktiviert. Die Anmeldung für Mitarbeitende ist gesperrt.";
+          knopf.textContent = "Portal aktivieren";
+        }
+      }
+      function maPortalUmschalten() {
+        if (maPortalIstAktiv()) {
+          localStorage.setItem(MA_PORTAL_SCHLUESSEL, "aus");
+        } else {
+          localStorage.setItem(MA_PORTAL_SCHLUESSEL, "an");
+        }
+        maPortalAnzeigen();
+        maPortalStatusAktualisieren();
+        adminMelden(maPortalIstAktiv()
+          ? "Mitarbeiter-Portal aktiviert. Mitarbeitende können sich jetzt anmelden."
+          : "Mitarbeiter-Portal deaktiviert. Die Anmeldung für Mitarbeitende ist gesperrt.");
+      }
+      maPortalAnzeigen();
       document.getElementById("maForm").addEventListener("submit", async function (e) {
         e.preventDefault();
+        if (!maPortalIstAktiv()) {
+          const blockHinweis = document.getElementById("e-ma-hinweis");
+          blockHinweis.textContent = "Das Mitarbeiter-Portal ist derzeit deaktiviert. Bitte wenden Sie sich an die Verwaltung.";
+          blockHinweis.style.display = "block";
+          return;
+        }
         const nummer = document.getElementById("ma-nummer").value.trim();
         const passwort = document.getElementById("ma-passwort").value;
         const fehler = document.getElementById("e-ma");
@@ -1964,9 +2015,9 @@
           <h4>Kontakt</h4>
           <p>Telefon: 0177 / 970 01 89<br />E-Mail: m.eroglu@m-safety-solution.de<br />Kontaktformular: auf dieser Website verfügbar</p>
           <h4>Umsatzsteuer-Identifikationsnummer</h4>
-          <p>Noch einzutragen (Platzhalter – vor dem Live-Betrieb ergänzen).</p>
+          <p>Nicht vorhanden.</p>
           <h4>Registereintrag</h4>
-          <p>Handelsregister-Eintrag: noch einzutragen (Platzhalter – vor dem Live-Betrieb ergänzen).</p>
+          <p>Handelsregister-Eintrag: wird ergänzt (Amtsgericht und HRB-Nummer folgen).</p>
           <h4>Verantwortlich für den Inhalt</h4>
           <p>Paragraf 18 Abs. 2 MStV: M. Eroglu, Anschrift wie oben.</p>
           <h4>Streitschlichtung</h4>
@@ -2213,6 +2264,7 @@
           document.getElementById("adminInhalt").style.display = "block";
           maKontoListe();
           lohnKontoAuswahl();
+          maPortalStatusAktualisieren();
           adminMelden("Anmeldung erfolgreich. Der Einmalschlüssel ist ab jetzt verbraucht und auf diesem Gerät ungültig.");
         } else {
           fehler.textContent = "Benutzername oder Einmalschlüssel ist falsch.";
