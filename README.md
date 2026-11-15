@@ -6,13 +6,12 @@ Die Website wurde mit Unterstützung von KI (Vibe / Mistral AI) erstellt.
 ## Struktur
 
 - `index.html` – vollständige, eigenständige Website (HTML, CSS und JavaScript in einer Datei, keine externen Abhängigkeiten, kein Build-Schritt)
-- `CNAME` – Konfiguration der eigenen Domain `m-safety-solution.de` für GitHub Pages
 
 ## Bereiche
 
 - Leistungen: Objektschutz, Baustellenbewachung, Betriebssanitäter, Reinigungsdienste, Servicedienstleistungen, Brandwache
+- Admin-Bereich: Anmeldung über einen 10-stelligen Benutzernamen und einen einmalig gültigen Schlüssel (mindestens 20 Zeichen). Die Zugangsdaten erhält ausschließlich der Inhaber; der Schlüssel verfällt nach der ersten Nutzung.
 - Mitarbeiter-Portal (Demo): Personalnummer 1001, Passwort demo1234
-- Admin-Bereich (Demo): Passwort demo1234
 - Rechtstexte (Impressum, Datenschutz, AGB) als Beispieltexte
 - Kontaktformulare: Versand über das E-Mail-Programm des Besuchers an m.eroglu@m-safety-solution.de
 
@@ -21,5 +20,5 @@ Die Website wurde mit Unterstützung von KI (Vibe / Mistral AI) erstellt.
 - DNS-Einträge beim Domain-Anbieter auf GitHub Pages umstellen (siehe AGENTS.md).
 - Beispieldaten ersetzen: Bewertungen, Werbepartner, Zertifikate, News, Dienstpläne, Schulungen.
 - Impressum ergänzen: USt-IdNr. und Handelsregisterdaten; Rechtstexte rechtlich prüfen lassen.
-- Demo-Zugänge (Admin, Mitarbeiter-Portal) entfernen oder durch echte Anmeldung ersetzen.
-- Empfehlung: serverseitiger Formularversand (z. B. Formspree, Netlify Forms oder PHP beim Hoster).
+- Mitarbeiter-Portal (Demo-Zugang) entfernen oder durch echte Anmeldung ersetzen.
+- Hinweis: Die Anmeldung des Admin-Bereichs funktioniert bei einer statischen Seite nur im Browser (kein Server). Für echten, geräteübergreifenden Schutz ist eine serverseitige Anmeldung erforderlich.
