@@ -154,65 +154,16 @@
       }
       .erklaerung strong { color: var(--navy); }
 
-      /* ---------- Begriffe ---------- */
-      .begriffe { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }
-      .begriff { border: 1px solid var(--linie); border-radius: 14px; padding: 22px 24px; background: var(--mist); }
-      .begriff h3 { font-size: 0.98rem; color: var(--navy); margin-bottom: 8px; display: flex; align-items: center; gap: 9px; }
-      .begriff h3::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex: 0 0 auto; }
-      .begriff p { color: var(--grau); font-size: 0.9rem; line-height: 1.6; }
-
-      /* ---------- Branchen / Partner / Zertifikate ---------- */
+      /* ---------- Branchen ---------- */
       .branchen { display: flex; flex-wrap: wrap; gap: 12px; }
       .branche {
         background: var(--mist); border: 1px solid var(--linie); color: var(--navy);
         font-size: 0.9rem; font-weight: 700; padding: 10px 20px; border-radius: 999px;
       }
-      .partner-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; margin-bottom: 44px; }
-      .partner-badge {
-        border: 1px solid var(--linie); border-radius: 14px; background: var(--mist);
-        min-height: 96px; display: grid; place-items: center; text-align: center; padding: 16px;
-        color: var(--navy); font-weight: 700; font-size: 0.9rem;
-      }
-      .partner-badge small { display: block; color: var(--grau); font-weight: 600; font-size: 0.72rem; margin-top: 5px; }
-      .zertifikat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
       .zertifikat { display: flex; gap: 14px; align-items: center; border: 1px solid var(--linie); border-radius: 14px; padding: 18px 20px; background: #fff; }
-      .zertifikat .siegel {
-        width: 46px; height: 46px; border-radius: 50%; flex: 0 0 auto;
-        border: 2px solid var(--gold); background: var(--gold-soft); display: grid; place-items: center; color: #8a6d14;
-      }
-      .zertifikat strong { display: block; font-size: 0.96rem; }
-      .zertifikat span { color: var(--grau); font-size: 0.83rem; }
 
-      /* ---------- Ablauf ---------- */
-      .ablauf { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
-      .schritt {
-        background: linear-gradient(180deg, var(--mist), #fff);
-        border: 1px solid var(--linie); border-radius: 16px; padding: 30px 26px; position: relative;
-      }
-      .schritt-nr {
-        width: 48px; height: 48px; border-radius: 50%; margin-bottom: 18px;
-        background: var(--navy); color: var(--gold-2); font-weight: 800; font-size: 1.15rem;
-        display: grid; place-items: center; border: 2px solid var(--gold);
-      }
-      .schritt h3 { font-size: 1.08rem; margin-bottom: 10px; }
-      .schritt p { color: var(--grau); font-size: 0.94rem; line-height: 1.65; }
-
-      /* ---------- Bewertungen ---------- */
-      .bewertungen-wrap { display: grid; grid-template-columns: 0.85fr 1.5fr; gap: 24px; align-items: start; }
-      .bewertung-summ {
-        background: linear-gradient(160deg, var(--navy), var(--navy-3));
-        color: #fff; border-radius: 16px; padding: 34px 28px; text-align: center;
-      }
-      .bewertung-summ .note { font-size: 2.7rem; font-weight: 800; color: var(--gold-2); }
-      .bewertung-summ .sterne { color: var(--gold-2); font-size: 1.15rem; letter-spacing: 4px; margin: 10px 0; }
-      .bewertung-summ p { color: #c5d2e4; font-size: 0.86rem; line-height: 1.55; }
-      .bewertung-grid { display: grid; gap: 18px; }
       .bewertung { border: 1px solid var(--linie); border-radius: 14px; padding: 22px 24px; background: #fff; }
       .bewertung .kopf { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
-      .bewertung .kopf strong { font-size: 0.96rem; color: var(--navy); }
-      .bewertung .quelle { font-size: 0.76rem; color: var(--grau); }
-      .bewertung .sterne-klein { color: var(--gold); font-size: 0.86rem; letter-spacing: 3px; margin-bottom: 8px; }
-      .bewertung p { color: #38455a; font-size: 0.93rem; line-height: 1.6; }
 
       /* ---------- Über uns ---------- */
       .ueber { display: grid; grid-template-columns: 320px 1fr; gap: 48px; align-items: start; }
@@ -320,25 +271,14 @@
       }
       .admin-x { position: absolute; top: 14px; right: 18px; background: none; border: none; color: var(--grau); font-size: 1.4rem; cursor: pointer; }
 
-      /* ---------- Leistungswelten & Aktuelles ---------- */
+      /* ---------- Aktuelles ---------- */
       .welten-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
       .welt { border: 1px solid var(--linie); border-radius: 18px; padding: 32px 28px; background: linear-gradient(180deg, var(--mist), #fff); transition: transform 0.18s ease, box-shadow 0.18s ease; }
-      .welt:hover { transform: translateY(-6px); box-shadow: 0 16px 34px rgba(13, 36, 64, 0.12); }
-      .welt h3 { font-size: 1.18rem; margin-bottom: 10px; color: var(--navy); }
-      .welt > p { color: var(--grau); font-size: 0.94rem; line-height: 1.6; margin-bottom: 14px; }
-      .welt ul { list-style: none; margin-bottom: 18px; }
-      .welt li { padding: 7px 0; border-bottom: 1px solid var(--linie); color: #38455a; font-size: 0.9rem; font-weight: 600; }
-      .welt li:last-child { border-bottom: none; }
-      .welt .mehr { color: var(--navy); font-weight: 800; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 7px; }
-      .welt .mehr::after { content: "→"; color: var(--gold); }
-      .welt .mehr:hover { text-decoration: underline; }
       .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; margin-bottom: 14px; }
       .news-karte { border: 1px solid var(--linie); border-radius: 14px; padding: 22px 24px; background: #fff; }
       .news-karte small { color: #8a6d14; font-weight: 800; font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; }
       .news-karte h3 { font-size: 1.02rem; color: var(--navy); margin: 8px 0; }
       .news-karte p { color: var(--grau); font-size: 0.9rem; line-height: 1.6; }
-      .ki-hinweis { margin-top: 34px; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 12px; padding: 14px 18px; font-size: 0.82rem; line-height: 1.65; color: #9db0ca; }
-      .ki-hinweis strong { color: #d9c88a; }
 
       /* ---------- Mitarbeiter-Bereich ---------- */
       .ma-box { display: grid; grid-template-columns: 0.9fr 1.2fr; gap: 26px; align-items: stretch; }
@@ -431,7 +371,6 @@
           border-bottom: 1px solid var(--linie);
         }
         .nav-links.offen a.aktiv { border-bottom-color: transparent; }
-        .bewertungen-wrap { grid-template-columns: 1fr; }
       }
       @media (max-width: 620px) {
         .form-reihe, .kz-liste { grid-template-columns: 1fr; }
@@ -589,57 +528,6 @@
         </div>
       </section>
 
-      <!-- Leistungswelten -->
-      <section class="abschnitt reveal" id="welten">
-        <div class="abschnitt-kopf">
-          <div class="ueberlinie">Leistungswelten</div>
-          <h2>Drei Welten – ein Ansprechpartner</h2>
-          <p>Vom Schutz Ihres Objekts bis zur laufenden Betreuung: Sie erhalten alle Leistungen von einem Partner, abgestimmt auf Ihren Bedarf.</p>
-        </div>
-        <div class="welten-grid">
-          <article class="welt">
-            <div class="leistung-ico">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h3>Sicherheit</h3>
-            <p>Zuverlässiger Schutz für Gebäude, Gelände und Baustellen – rund um die Uhr und lückenlos dokumentiert.</p>
-            <ul>
-              <li>Objektschutz</li>
-              <li>Baustellenbewachung</li>
-              <li>Brandwache</li>
-              <li>Betriebssanitäter</li>
-            </ul>
-            <a class="mehr" href="#leistungen">Mehr erfahren</a>
-          </article>
-          <article class="welt">
-            <div class="leistung-ico">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M19 15l2 5-4-1"/></svg>
-            </div>
-            <h3>Reinigung &amp; Pflege</h3>
-            <p>Sauberkeit und Hygiene für Büros, Produktionsflächen und Gemeinschaftseigentum – regelmäßig oder nach Bedarf.</p>
-            <ul>
-              <li>Unterhaltsreinigung</li>
-              <li>Sonderreinigung</li>
-              <li>Treppenhäuser und Gemeinschaftsflächen</li>
-            </ul>
-            <a class="mehr" href="#leistungen">Mehr erfahren</a>
-          </article>
-          <article class="welt">
-            <div class="leistung-ico">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4.5 4.5 0 0 0-6.4 6.4L3 18v3h3l5.3-5.3a4.5 4.5 0 0 0 6.4-6.4l-3.2 3.2-2.2-2.2 3.4-3z"/></svg>
-            </div>
-            <h3>Service &amp; Unterstützung</h3>
-            <p>Wiederkehrende Aufgaben auf Ihrem Gelände, die niemanden fest beschäftigen – zuverlässig und auf Wunsch dokumentiert.</p>
-            <ul>
-              <li>Botenfahrten</li>
-              <li>Kleinreparaturen</li>
-              <li>Winterdienst und Objektservices</li>
-            </ul>
-            <a class="mehr" href="#leistungen">Mehr erfahren</a>
-          </article>
-        </div>
-      </section>
-
       <!-- Leistungen -->
       <section class="abschnitt reveal" id="leistungen">
         <div class="abschnitt-kopf">
@@ -699,45 +587,6 @@
         </div>
       </section>
 
-      <!-- Begriffe -->
-      <section class="abschnitt reveal" id="begriffe">
-        <div class="abschnitt-kopf">
-          <div class="ueberlinie">Begriffe erklärt</div>
-          <h2>Fachbegriffe und Normen verständlich gemacht</h2>
-          <p>Sicherheit hat viele Fachausdrücke. Hier finden Sie die wichtigsten Begriffe kurz und klar erklärt.</p>
-        </div>
-        <div class="begriffe">
-          <div class="begriff">
-            <h3>§ 34a GewO</h3>
-            <p>Der Paragraf 34a der Gewerbeordnung regelt das Bewachungsgewerbe in Deutschland. Wer Schutzaufgaben für andere anbietet, muss eine Zuverlässigkeitsprüfung bestehen. Sie erkennen damit seriöse Sicherheitsfirmen.</p>
-          </div>
-          <div class="begriff">
-            <h3>Objektschutz vs. Baustellenbewachung</h3>
-            <p>Objektschutz schützt bestehende Gebäude und Gelände im laufenden Betrieb. Baustellenbewachung sichert dagegen temporäre Baustellen mit Maschinen, Material und offenen Zugängen.</p>
-          </div>
-          <div class="begriff">
-            <h3>Betriebssanitäter</h3>
-            <p>Eine speziell geschulte Person für Notfälle im Betrieb, vergleichbar mit einer „Fortbildung der Ersten Hilfe“. Sie stabilisiert Verletzte, bis der Rettungsdienst übernimmt, und ist bei vielen Firmen gesetzlich vorgeschrieben.</p>
-          </div>
-          <div class="begriff">
-            <h3>Brandwache</h3>
-            <p>Eine Brandschutz-Einweisung der Feuerwehr: Geschulte Kräfte überwachen ein Gebäude oder Ereignis, erkennen Brände früh und leiten erste Maßnahmen ein. Wird häufig bei Anlagen-Ausfall oder Feiern angeordnet.</p>
-          </div>
-          <div class="begriff">
-            <h3>DIN EN ISO 9001</h3>
-            <p>Eine international anerkannte Norm für Qualitätsmanagement. Firmen mit dieser Norm dokumentieren und verbessern ihre Arbeitsabläufe regelmäßig.</p>
-          </div>
-          <div class="begriff">
-            <h3>Einsatzdokumentation</h3>
-            <p>Jeder Kontrollgang und Vorfall wird schriftlich oder digital festgehalten – mit Uhrzeit, Ort und Beobachtung. Sie erhalten so jederzeit nachvollziehbar, was auf Ihrem Objekt geschehen ist.</p>
-          </div>
-          <div class="begriff">
-            <h3>DIN 77200</h3>
-            <p>Die Norm für Sicherungsdienstleistungen beschreibt verbindliche Anforderungen an personelle Sicherheitsdienste: dokumentierte Abläufe, Qualifikation des Personals und klare Verantwortlichkeiten. Seriöse Anbieter lassen sich nach dieser Norm zertifizieren.</p>
-          </div>
-        </div>
-      </section>
-
       <!-- Branchen -->
       <section class="abschnitt reveal" id="branchen">
         <div class="abschnitt-kopf">
@@ -756,37 +605,6 @@
         </div>
       </section>
 
-      <!-- Ablauf -->
-      <section class="abschnitt reveal" id="ablauf">
-        <div class="abschnitt-kopf">
-          <div class="ueberlinie">Zusammenarbeit</div>
-          <h2>In drei Schritten zum Schutzkonzept</h2>
-          <p>Transparent, dokumentiert und ohne versteckte Kosten.</p>
-        </div>
-        <div class="ablauf">
-          <div class="schritt">
-            <div class="schritt-nr">1</div>
-            <h3>Beratung vor Ort</h3>
-            <p>Wir besichtigen Ihr Objekt, erfassen Risiken und Sicherheitslücken und besprechen Ihre Anforderungen.</p>
-          </div>
-          <div class="schritt">
-            <div class="schritt-nr">2</div>
-            <h3>Angebot &amp; Konzept</h3>
-            <p>Sie erhalten ein schriftliches Angebot mit klarem Leistungsumfang, Einsatzzeiten und Festpreisen.</p>
-          </div>
-          <div class="schritt">
-            <div class="schritt-nr">3</div>
-            <h3>Umsetzung &amp; Kontrolle</h3>
-            <p>Einsatz geprüften Personals mit Einsatzberichten und regelmäßigen Qualitätskontrollen.</p>
-          </div>
-          <div class="schritt">
-            <div class="schritt-nr">4</div>
-            <h3>Berichtswesen &amp; Anpassung</h3>
-            <p>Sie erhalten Einsatzberichte und Auswertungen. Verändert sich Ihr Objekt, passen wir Posten und Kontrollgänge an – die Qualität wird regelmäßig überprüft.</p>
-          </div>
-        </div>
-      </section>
-
       <!-- Aktuelles -->
       <section class="abschnitt reveal" id="aktuelles">
         <div class="abschnitt-kopf">
@@ -796,72 +614,6 @@
         </div>
         <div class="news-grid" id="newsGrid"></div>
         <div class="test-hinweis">Beispielbeiträge. Im Live-Betrieb veröffentlicht die Verwaltung aktuelle Meldungen über den Admin-Bereich.</div>
-      </section>
-
-      <!-- Bewertungen -->
-      <section class="abschnitt reveal" id="bewertungen">
-        <div class="abschnitt-kopf">
-          <div class="ueberlinie">Bewertungen</div>
-          <h2>Vertrauen durch Erfahrung</h2>
-          <p>Im Live-Betrieb kann dieser Bereich automatisch mit echten Google-Bewertungen verknüpft werden. Die folgenden Einträge sind Beispiele.</p>
-        </div>
-        <div class="bewertungen-wrap">
-          <div class="bewertung-summ">
-            <div class="note">4,8 / 5</div>
-            <div class="sterne">★★★★★</div>
-            <p>Durchschnitt aus Kundenzuschriften und Google-Bewertungen (Beispielwerte)</p>
-          </div>
-          <div class="bewertung-grid">
-            <div class="bewertung">
-              <div class="kopf"><strong>Logistikzentrum, Bereichsleitung</strong><span class="quelle">Google-Bewertung · Beispiel</span></div>
-              <div class="sterne-klein">★★★★★</div>
-              <p>„Der Objektschutz läuft seit zwei Jahren absolut zuverlässig. Jede Schicht wird dokumentiert, bei Zwischenfällen erhalten wir binnen Minuten eine Meldung.“</p>
-            </div>
-            <div class="bewertung">
-              <div class="kopf"><strong>Bauunternehmen</strong><span class="quelle">Google-Bewertung · Beispiel</span></div>
-              <div class="sterne-klein">★★★★★</div>
-              <p>„Die Baustellenbewachung hat uns schon zwei Mal vor größerem Materialdiebstahl bewahrt. Saubere Übergaben, freundliche Kräfte.“</p>
-            </div>
-            <div class="bewertung">
-              <div class="kopf"><strong>Mittelständischer Hersteller</strong><span class="quelle">Kundenzuschrift · Beispiel</span></div>
-              <div class="sterne-klein">★★★★☆</div>
-              <p>„Die Brandwache während unserer Anlagenmodernisierung war bestens besetzt und vorbereitet. Professioneller Auftritt des gesamten Teams.“</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Partner & Zertifikate -->
-      <section class="abschnitt reveal" id="partner">
-        <div class="abschnitt-kopf">
-          <div class="ueberlinie">Partner &amp; Zertifikate</div>
-          <h2>Werbepartner und Qualitätsnachweise</h2>
-          <p>Dieser Bereich ist über den Admin-Bereich erweiterbar: Partner, ISO-Normen und Zertifikate lassen sich dort einpflegen. Die folgenden Einträge sind Beispiele.</p>
-        </div>
-        <div class="partner-grid" id="partnerGrid">
-          <div class="partner-badge">Ausbildungspartner Nord<small>Werbepartner · Beispiel</small></div>
-          <div class="partner-badge">Reinigungs-Allianz<small>Werbepartner · Beispiel</small></div>
-          <div class="partner-badge">TechnikService 24<small>Werbepartner · Beispiel</small></div>
-          <div class="partner-badge">SicherheitsShop Süd<small>Werbepartner · Beispiel</small></div>
-        </div>
-        <div class="zertifikat-grid" id="zertGrid">
-          <div class="zertifikat">
-            <span class="siegel"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></span>
-            <div><strong>DIN EN ISO 9001</strong><span>Qualitätsmanagement · Beispiel</span></div>
-          </div>
-          <div class="zertifikat">
-            <span class="siegel"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-            <div><strong>§ 34a GewO</strong><span>Zuverlässigkeitsprüfung Bewachungsgewerbe · Beispiel</span></div>
-          </div>
-          <div class="zertifikat">
-            <span class="siegel"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></span>
-            <div><strong>DIN 77200</strong><span>Anforderungen an Sicherungsdienstleistungen · Branchenstandard, Zertifizierung angestrebt (Beispiel)</span></div>
-          </div>
-          <div class="zertifikat">
-            <span class="siegel"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg></span>
-            <div><strong>Regelmäßige Schulungen</strong><span>Interner Qualitäts- und Sicherheitsnachweis</span></div>
-          </div>
-        </div>
       </section>
 
       <!-- Über uns -->
@@ -1147,13 +899,8 @@
             <h4>Seiten</h4>
             <ul>
               <li><a href="#leistungen">Leistungen</a></li>
-              <li><a href="#welten">Leistungswelten</a></li>
               <li><a href="#aktuelles">Aktuelles</a></li>
-              <li><a href="#begriffe">Begriffe</a></li>
               <li><a href="#branchen">Branchen</a></li>
-              <li><a href="#ablauf">Ablauf</a></li>
-              <li><a href="#bewertungen">Bewertungen</a></li>
-              <li><a href="#partner">Partner &amp; Zertifikate</a></li>
               <li><a href="#ueber-uns">Über uns</a></li>
               <li><a href="#bewerbung">Karriere</a></li>
               <li><a href="#kontakt">Kontakt</a></li>
@@ -1177,9 +924,6 @@
               <li><a href="#" onclick="legalOeffnen('agb'); return false;">AGB</a></li>
             </ul>
           </div>
-        </div>
-        <div class="ki-hinweis">
-          <strong>Hinweis zur Erstellung:</strong> Diese Website wurde mit Unterstützung von Künstlicher Intelligenz (KI) erstellt. Konzept, Inhalte und Freigabe liegen beim Auftraggeber; vor dem Live-Betrieb werden alle Beispieldaten durch geprüfte Angaben ersetzt.
         </div>
         <div class="fuss-unten">
           <span>© 2026 M&amp;I Safety - Solution GmbH · Sieringstr. 44 · 65929 Frankfurt am Main · Geschäftsführer: M. Eroglu</span>
@@ -1338,7 +1082,6 @@
       </div>
     </div>
 
-
     <!-- Admin-Bereich (Demo) -->
     <div class="admin-overlay" id="adminOverlay">
       <div class="admin-panel">
@@ -1365,21 +1108,6 @@
           <div class="admin-actions">
             <button class="btn btn-gold" onclick="promoSetzen()">Banner aktivieren</button>
             <button class="btn btn-ghost" onclick="promoLoeschen()">Banner entfernen</button>
-          </div>
-          <div class="admin-feld" style="margin-top:24px;">
-            <label for="partnerName">Werbepartner hinzufügen</label>
-            <input type="text" id="partnerName" placeholder="Name des Partners" />
-          </div>
-          <div class="admin-actions">
-            <button class="btn btn-gold" onclick="partnerHinzufuegen()">Partner hinzufügen</button>
-          </div>
-          <div class="admin-feld" style="margin-top:24px;">
-            <label for="zertName">Zertifikat / ISO-Norm hinzufügen</label>
-            <input type="text" id="zertName" placeholder="z. B. DIN EN ISO 9001" />
-            <input type="text" id="zertBeschreibung" placeholder="Kurze Beschreibung (optional)" style="margin-top:8px;" />
-          </div>
-          <div class="admin-actions">
-            <button class="btn btn-gold" onclick="zertifikatHinzufuegen()">Zertifikat hinzufügen</button>
           </div>
           <div class="admin-feld" style="margin-top:24px;">
             <label for="maNewsText">Mitteilung an das Team veröffentlichen (Mitarbeiter-Bereich)</label>
@@ -2021,9 +1749,7 @@
           <h4>Verantwortlich für den Inhalt</h4>
           <p>Paragraf 18 Abs. 2 MStV: M. Eroglu, Anschrift wie oben.</p>
           <h4>Streitschlichtung</h4>
-          <p>Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
-          <h4>Erstellung der Website</h4>
-          <p>Diese Website wurde mit Unterstützung von Künstlicher Intelligenz (KI) erstellt. Die Inhalte wurden vom Auftraggeber vorgegeben, geprüft und freigegeben.</p>`
+          <p>Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>`
         },
         datenschutz: {
           titel: "Datenschutzerklärung",
@@ -2287,31 +2013,6 @@
         promo.textContent = "";
         promo.style.display = "none";
         adminMelden("Banner entfernt.");
-      }
-      function partnerHinzufuegen() {
-        const name = document.getElementById("partnerName").value.trim();
-        if (name === "") return;
-        const el = document.createElement("div");
-        el.className = "partner-badge";
-        el.innerHTML = name + "<small>Werbepartner</small>";
-        document.getElementById("partnerGrid").appendChild(el);
-        document.getElementById("partnerName").value = "";
-        adminMelden("Werbepartner hinzugefügt: " + name);
-      }
-      function zertifikatHinzufuegen() {
-        const name = document.getElementById("zertName").value.trim();
-        if (name === "") return;
-        const beschreibung = document.getElementById("zertBeschreibung").value.trim();
-        const el = document.createElement("div");
-        el.className = "zertifikat";
-        el.innerHTML =
-          '<span class="siegel"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></span>' +
-          "<div><strong>" + name + "</strong><span>" +
-          (beschreibung !== "" ? beschreibung : "Zertifikat / Norm") + "</span></div>";
-        document.getElementById("zertGrid").appendChild(el);
-        document.getElementById("zertName").value = "";
-        document.getElementById("zertBeschreibung").value = "";
-        adminMelden("Zertifikat hinzugefügt: " + name);
       }
       document.getElementById("adminLink").addEventListener("click", adminOeffnen);
     </script>
